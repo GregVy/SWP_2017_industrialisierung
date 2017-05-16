@@ -1,0 +1,61 @@
+﻿label {
+    	 float: left;
+   	 width: 5em;
+   	 padding-top: 0.3em;
+   	 text-align: left;
+   	 margin-right: 1.5em;
+	 cursor: text;
+}
+
+input {
+         display: block;
+         font-size: 1em;
+         margin-bottom: 0.8em;
+         border: 1px solid #000;
+         padding: 0.1em;
+         width: 15em;
+}
+
+fieldset {
+  	margin: 1em;
+ 	padding: 1em;
+  	width: 26em;
+  	border: 0.1em solid #000;
+	border-radius: 10px;
+	float:left;
+	
+}
+
+button {
+	float: right;
+	text-align: center;
+	margin: 4px 2px;
+	font-size: 16px;
+	padding: 35px 12px;
+}
+
+#upload {
+	
+	display: inline-block;
+	float: left;
+	height: 200px;
+	
+}
+
+#lblupload {
+	width: 100%;
+	text-align: center;
+}
+
+#btnupload {
+	width: 100%;
+}
+
+#lblurl {
+	width: 25%;
+}
+
+#urlupload {
+	width: 69%;
+	float: right;
+}
