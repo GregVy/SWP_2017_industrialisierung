@@ -7,9 +7,9 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
   <script type="text/javascript" src="javascripts/main.js"></script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsK4FVsPOflshDd4-X7ocaw1N2_wLMi2U&libraries=drawing,visualization&callback=initMap" async defer></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsK4FVsPOflshDd4-X7ocaw1N2_wLMi2U&libraries=drawing,visualization&callback=initMap" async defer></script>
 
 </head>
 <body>
@@ -23,54 +23,52 @@
             <div class="form-group" style="left: 50%">
                 <input name="Password" type="password" class="form-control" id="passwordInput" placeholder="Password">
             </div>
+            <a class href="main_Login.html" title>
             <button type="submit" class="Login-Button1">Anmelden</button>
+            </a>
         </div>
     </div>
-    
-    <button id="button" class="ui-state-default">Anmelden</button>
-
+        <button id="button" class="ui-state-default">Anmelden</button>
 </div>
 
-<div align="center"><h1>Thüringen- Industrialisierung und soziale Bewegungen</h1></div>
+<div align="center"><h1>Th&uuml;ringen- Industrialisierung und soziale Bewegungen</h1></div>
 
 <div id="centre" class="centre">
-    <div id="map" class="map"></div>
-    <div id="legend" class="legend">
-        <br />
-        <fieldset style=" border: none ">
-            <h2>Legende:</h2>
-            <br />
-            <label for="checkbox-1" >
-                <input class=".legendCheckbox" type="checkbox" name="checkbox-1" id="checkbox-1">
-                soziale Bewegungen
-            </label>
-            <br /><br /><br />
-            <label for="checkbox-2">
-                <input class=".legendCheckbox" type="checkbox" name="checkbox-2" id="checkbox-2">
-                Ereignistyp 2
-            </label>
-            <br /><br />
-            <label for="checkbox-3">
-                <input class=".legendCheckbox" type="checkbox" name="checkbox-3" id="checkbox-3">
-                Ereignistyp 3
-            </label>
-            <br /><br />
-            <label for="checkbox-4">
-                <input class=".legendCheckbox" type="checkbox" name="checkbox-4" id="checkbox-4">
-                Ereignistyp 4
-            </label>
-            <br /><br />
-          </fieldset>
+    <div id="spoiler_left_active" class="spoiler_left_active">
+        <button rel="1" id="pop-up1_return" class="pop-up1_return"></button>
     </div>
-    <div id="Info" class="Info">
-        <br />
-        <fieldset style=" border: none ">
+    <div id="map" class="map"></div>
+    <div id="spoiler_left" class="spoiler_left">
+        <div id="pop_up1" class="pop_up1">
+            <button rel="1" type="button" class="pop_button1" ></button>
+        </div>
+        <div id="legend" class="legend">
+            <ul id="legendList">
+                <li rel="0" class="legendItem">Soziale Bewegung</li>
+                <li rel="1" class="legendItem">Industrie 1</li>
+                <li rel="2" class="legendItem">Industrie 2</li>
+                <li rel="3" class="legendItem">Industrie 3</li>
+            </ul>
+        </div>
+    </div>
 
-        </fieldset>
+    <div id="spoiler_right_active" class="spoiler_right_active">
+        <button rel="2" id="pop-up2_return" class="pop-up2_return"></button>
+    </div>
+    <div id="spoiler_right" class="spoiler_right">
+        <div id="pop_up2" class="pop_up2">
+            <button rel="2" type="button" class="pop_button2" ></button>
+        </div>
+        <div id="info_inside" class="info_inside">
+
+        </div>
     </div>
     <div id="slider" class="slider">
     </div>
 </div>
+
+<button rel="2" class="pop_button" type="button" name="Pop-In 2"></button>
+
 
 </body>
 </html>
