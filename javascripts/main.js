@@ -2,12 +2,12 @@ jQuery.noConflict();
 
 var map;
 var markers = new Array;
-var map_zoom = 8;
+
 var map_option = {
     center: {lat: 50.930, lng: 11.240},
 
-    zoom: map_zoom,
-    minZoom: map_zoom,
+    zoom: 8,
+    minZoom: 8,
     maxZoom: 20,
 
     zoomControl: true,
@@ -264,68 +264,128 @@ jQuery( document ).ready(function() {
   });
 });
 
+// Pop-In
 jQuery( document ).ready(function() {
-  jQuery( ".pop_button1" ).on('click', function() {
-      jQuery( "#spoiler_left" ).toggle();
-      jQuery( "#spoiler_left_active" ).show();
-      if (document.getElementById("spoiler_right").style.display == "none") {
-        document.getElementById("map").style.left = "0.9%";
-        document.getElementById("map").style.width = "98.1%";
-        document.getElementById("spoiler_left_active").style.height = "84.4%";
-      } else {
-        document.getElementById("map").style.left = "0.9%";
-        document.getElementById("map").style.width = "84.3%";
-        document.getElementById("spoiler_left_active").style.height = "84.4%";
-      }
-      map_zoom = 9;
-      map = new google.maps.Map(document.getElementById('map'), map_option);
-      map.setZoom(map_zoom);
-  });
 
-jQuery( ".pop-up1_return" ).on('click', function() {
+    jQuery( ".pop_button1" ).on('click', function() {
+        jQuery( "#spoiler_left" ).toggle();
+        jQuery( "#spoiler_left_active" ).toggle();
+        if (document.getElementById("spoiler_right").style.display == "none") {
+          document.getElementById("map").style.left = "0.9%";
+          document.getElementById("map").style.width = "98.1%";
+          document.getElementById("spoiler_left_active").style.height = "84.4%";
+        } else {
+          document.getElementById("map").style.left = "0.9%";
+          document.getElementById("map").style.width = "84.3%";
+          document.getElementById("spoiler_left_active").style.height = "84.4%";
+        }
+        initMap();
+    });
+
+    jQuery( ".pop-up1_return" ).on('click', function() {
       jQuery( "#spoiler_left" ).toggle();
-      jQuery( "#spoiler_left_active" ).hide();
-      if (document.getElementById("spoiler_right").style.display == "none") {
-        document.getElementById("map").style.left = "14.8%";
-        document.getElementById("map").style.width = "84.3%";
-      } else {
-        document.getElementById("map").style.left = "14.8%";
-        document.getElementById("map").style.width = "70.4%";
-      }
-      map_zoom = 8;
-      map = new google.maps.Map(document.getElementById("map"), map_option);
-      map.setZoom(map_zoom);
-  });
+          jQuery( "#spoiler_left_active" ).toggle();
+          if (document.getElementById("spoiler_right").style.display == "none") {
+            document.getElementById("map").style.left = "14.8%";
+            document.getElementById("map").style.width = "84.3%";
+          } else {
+            document.getElementById("map").style.left = "14.8%";
+            document.getElementById("map").style.width = "70.4%";
+          }
+          initMap();
+      });
+
+    jQuery( ".pop_button2" ).on('click', function() {
+          jQuery( "#spoiler_right" ).toggle();
+          jQuery( "#spoiler_right_active" ).toggle();
+          if (document.getElementById("spoiler_left").style.display == "none") {
+            document.getElementById("map").style.left = "0.9%";
+            document.getElementById("map").style.width = "98.1%";
+            document.getElementById("spoiler_right_active").style.height = "84.4%";
+          } else {
+            document.getElementById("map").style.right = "0.9%";
+            document.getElementById("map").style.width = "84.3%";
+            document.getElementById("spoiler_right_active").style.height = "84.4%";
+          }
+          initMap();
+      });
+
+    jQuery( ".pop-up2_return" ).on('click', function() {
+            jQuery( "#spoiler_right" ).toggle();
+            jQuery( "#spoiler_right_active" ).toggle();
+            if (document.getElementById("spoiler_left").style.display == "none") {
+              document.getElementById("map").style.left = "0.9%";
+              document.getElementById("map").style.width = "84.3%";
+            } else {
+              document.getElementById("map").style.right = "14.8%";
+              document.getElementById("map").style.width = "70.4%";
+            }
+            initMap();
+        });
+
 });
 
-jQuery( document ).ready(function() {
-  jQuery( ".pop_button2" ).on('click', function() {
-      jQuery( "#spoiler_right" ).toggle();
-      jQuery( "#spoiler_right_active" ).show();
-      if (document.getElementById("spoiler_left").style.display == "none") {
-        document.getElementById("map").style.left = "0.9%";
-        document.getElementById("map").style.width = "98.1%";
-        document.getElementById("spoiler_right_active").style.height = "84.4%";
-      } else {
-        document.getElementById("map").style.right = "0.9%";
-        document.getElementById("map").style.width = "84.3%";
-        document.getElementById("spoiler_right_active").style.height = "84.4%";
-      }
-      map_zoom = 8;
-      map = new google.maps.Map(document.getElementById('map'), map_option);
-  });
+// Pop-In Cleanup / WIP
+jQuery( document ).ready(function (){
 
-jQuery( ".pop-up2_return" ).on('click', function() {
-      jQuery( "#spoiler_right" ).toggle();
-      jQuery( "#spoiler_right_active" ).hide();
-      if (document.getElementById("spoiler_left").style.display == "none") {
-        document.getElementById("map").style.left = "0.9%";
-        document.getElementById("map").style.width = "84.3%";
+  var leftActive  = true;
+  var rightActive = true;
+
+  jQuery('.pop-in_button').on('click', function() {
+
+    if (jQuery(this).attr('rel') == 1) {
+      jQuery( "#spoiler_left" ).toggle();
+      jQuery( "#spoiler_left_active" ).toggle();
+
+      if (leftActive == true) {
+        if (rightActive == false) {
+          document.getElementById("map").style.left = "0.9%";
+          document.getElementById("map").style.width = "98.1%";
+          document.getElementById("spoiler_left_active").style.height = "84.4%";
+        } else {
+          document.getElementById("map").style.left = "0.9%";
+          document.getElementById("map").style.width = "84.3%";
+          document.getElementById("spoiler_left_active").style.height = "84.4%";
+        }
       } else {
-        document.getElementById("map").style.right = "14.8%";
-        document.getElementById("map").style.width = "70.4%";
+        if (rightActive == false) {
+          document.getElementById("map").style.left = "14.8%";
+          document.getElementById("map").style.width = "84.3%";
+        } else {
+          document.getElementById("map").style.left = "14.8%";
+          document.getElementById("map").style.width = "70.4%";
+        }
       }
-      map_zoom = 8;
-      map = new google.maps.Map(document.getElementById("map"), map_option);
+      leftActive = !leftActive;
+
+    } else {
+
+      jQuery( "#spoiler_right" ).toggle();
+      jQuery( "#spoiler_right_active" ).toggle();
+
+      if (rightActive == true) {
+        if (leftActive == false) {
+          document.getElementById("map").style.left = "0.9%";
+          document.getElementById("map").style.width = "98.1%";
+          document.getElementById("spoiler_right_active").style.height = "84.4%";
+        } else {
+          document.getElementById("map").style.right = "0.9%";
+          document.getElementById("map").style.width = "84.3%";
+          document.getElementById("spoiler_right_active").style.height = "84.4%";
+        }
+      } else {
+        if (leftActive == false) {
+          document.getElementById("map").style.left = "0.9%";
+          document.getElementById("map").style.width = "84.3%";
+        } else {
+          document.getElementById("map").style.right = "14.8%";
+          document.getElementById("map").style.width = "70.4%";
+        }
+      }
+      rightActive = !rightActive;
+
+    }
+
+    initMap();
   });
 });
