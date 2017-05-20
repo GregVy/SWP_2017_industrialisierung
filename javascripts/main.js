@@ -1,6 +1,12 @@
 jQuery.noConflict();
 
 /*
+TODO Line297 - Im template des Objekts muss als String HTML Code stehen, welcher
+                     das Ereignis in der Liste repräsentiert
+TODO Line369 - jQuery Abfrage, welche den Inhalt der Liste löscht (einzeiler)
+*/
+
+/*
 FALLUNTERSCHEIDUNG BEI MARKERN
 
 C  --------------------------     F1
@@ -13,7 +19,7 @@ C  --------------------------   F3
 E     -----------------       crossed
 
 C         --------------------------    F4
-E     ------------------------          50%
+E     ------------------------          crossed
 
 C                        ---------------------- F5
 E     ----------------                          0%
@@ -21,10 +27,14 @@ E     ----------------                          0%
 C    ----------                     F6
 E                   ------------     0%
 
-6 Fälle Fi = i-ter Fall
-Was bei jeden passiert muss noch geklärt werden
 C = eingestellte Zeitspanne
 V = Zeitspanne des Ereignisses
+
+6 Fälle, Fi = i-ter Fall
+
+TODO Wie werden welche Fälle angezeigt?
+     Welche Fälle kommen in die Liste?
+     --> In Gruppe klären
 */
 
 ////////////////////////////////////////////
@@ -244,6 +254,7 @@ function initMap() {
 
 // Ereignis-Klasse
 function Ereignis (ID, name, type, /* standort,*/  lat, lng, JahrV, JahrB) {
+    // TODO Deklaration vervollständigen, erst möglich nach Absprache mit Geistis
     this.id = ID;
     this.name = name;
     this.type = type;
@@ -279,6 +290,11 @@ function Ereignis (ID, name, type, /* standort,*/  lat, lng, JahrV, JahrB) {
 
     this.getTime2 = function() {
       return this.time2;
+    };
+
+    this.getTemplate = function() {
+      return ""
+      // TODO Einfügen was genau über ein Ereignis in der Liste angezeigt werden soll
     };
 };
 
@@ -350,6 +366,8 @@ function InitializeM() {
 // Update Marker
 function UpdateM() {
 
+  // TODO Listeninhalt löschen
+
   for (var i = 0; i < EreignisArray.length; i++) {
 
     if (showType[typeID(EreignisArray[i].getType())]) {
@@ -360,12 +378,19 @@ function UpdateM() {
         MarkerArray[i].setMap(null);
       } else {
         if (EreignisArray[i].getTime1() < sV1) {
-          // F2 und F4
-          MarkerArray[i].setOpacity(0.5);
+          if (EreignisArray[i].getTime2() > sV2) {
+            // F2
+            MarkerArray[i].setOpacity(0.5);
+            AddToList(i);
+          } else {
+            // F4
+            MarkerArray[i].setOpacity(0.2);
+          }
         } else {
           if (EreignisArray[i].getTime2() > sV2) {
             // F1
             MarkerArray[i].setOpacity(1);
+            AddToList(i);
           } else {
             // F3
             MarkerArray[i].setOpacity(0.2);
@@ -377,6 +402,13 @@ function UpdateM() {
       MarkerArray[i].setMap(null);
     }
   }
+
+};
+
+// Ereignis zur Liste hinzufügen
+function AddToList(x) {
+
+  jQuery( "#EListe" ).append(EreignisArray[x].getTemplate());
 
 };
 
