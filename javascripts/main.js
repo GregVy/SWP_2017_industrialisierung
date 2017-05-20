@@ -1,8 +1,37 @@
 jQuery.noConflict();
 
-var map;
-var markers = new Array;
+/*
+FALLUNTERSCHEIDUNG BEI MARKERN
 
+C  --------------------------     F1
+E     ----------------------------- 100%
+
+C         ---------------------       F2
+E     -----------------------------   50%
+
+C  --------------------------   F3
+E     -----------------       crossed
+
+C         --------------------------    F4
+E     ------------------------          50%
+
+C                        ---------------------- F5
+E     ----------------                          0%
+
+C    ----------                     F6
+E                   ------------     0%
+
+6 Fälle Fi = i-ter Fall
+Was bei jeden passiert muss noch geklärt werden
+C = eingestellte Zeitspanne
+V = Zeitspanne des Ereignisses
+*/
+
+////////////////////////////////////////////
+// Globale Variablen
+
+var FULL_TIMESPAN = [1850, 1950];         // Konstanten
+var map;
 var map_option = {
     center: {lat: 50.930, lng: 11.240},
 
@@ -189,10 +218,178 @@ var map_option = {
 ]
   }
 
+var MarkerArray = new Array;
+var EreignisArray = new Array;
+var showType = [true, true, true, true];
+
+var sV1 = FULL_TIMESPAN[0];
+var sV2 = FULL_TIMESPAN[1];
+
+
+////////////////////////////////////////////
+// Datenbank-Anbindung
+
+InitializeE();
+
+
+////////////////////////////////////////////
+// Karten- und Klassen-Deklaration
+
+// Karte
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), map_option);
+  InitializeM();
+  UpdateM();
+};
+
+// Ereignis-Klasse
+function Ereignis (ID, name, type, /* standort,*/  lat, lng, JahrV, JahrB) {
+    this.id = ID;
+    this.name = name;
+    this.type = type;
+  //  this.standort = standort;
+    this.latC = lat;
+    this.lngC = lng;
+    this.time1 = JahrV;
+    this.time2 = JahrB;
+
+    this.getID = function() {
+      return this.id;
+    };
+
+    this.getName = function() {
+      return this.name;
+    };
+
+    this.getType = function() {
+      return this.type;
+    };
+
+    this.getLatC = function() {
+      return this.latC;
+    };
+
+    this.getLngC = function() {
+      return this.lngC;
+    };
+
+    this.getTime1 = function() {
+      return this.time1;
+    };
+
+    this.getTime2 = function() {
+      return this.time2;
+    };
+};
+
+
+////////////////////////////////////////////
+// Globale Funktionen
+
+// Ereignistyp-Array
+function toggleShowenType(ID) {
+
+  toggleType = showType [ID];
+  toggleType = !toggleType;
+  showType [ID] = toggleType;
+
+};
+
+// Type-Enummeration
+function typeID(currentType) {
+
+  switch (currentType) {
+    case "Soziale Bewegung":
+        return 0
+      break;
+
+    case "Industrie 1":
+        return 1
+      break;
+
+    case "Industrie 2":
+        return 2
+      break;
+
+    case "Industrie 3":
+        return 3
+      break;
+    }
+
+};
+
+// Ereignis-Array
+function InitializeE() {
+
+  EreignisArray.push(new Ereignis(0, "Bsp1", "Soziale Bewegung", 50.930, 11.240, 1880, 1950));
+  EreignisArray.push(new Ereignis(1, "Bsp2", "Industrie 1", 50.830, 11.840, 1850, 1920));
+  EreignisArray.push(new Ereignis(2, "Bsp3", "Industrie 3", 51.330, 10.840, 1890, 1910));
+  EreignisArray.push(new Ereignis(3, "Bsp4", "Industrie 2", 50.730, 10.840, 1870, 1990));
+
 }
 
+// Marker-Array
+function InitializeM() {
+
+  for (i = 0; i < EreignisArray.length ; i++) {
+
+    var currentEreignis = EreignisArray[i];
+
+    MarkerArray[i] = new google.maps.Marker ({
+      map: map,
+      position: {
+        lat: currentEreignis.getLatC(),
+        lng: currentEreignis.getLngC(),
+      },
+      title: currentEreignis.getName(),
+    });
+
+  };
+};
+
+// Update Marker
+function UpdateM() {
+
+  for (var i = 0; i < EreignisArray.length; i++) {
+
+    if (showType[typeID(EreignisArray[i].getType())]) {
+    // Ereignis-Typ wird angezeigt
+      MarkerArray[i].setMap(map);
+      if (EreignisArray[i].getTime1() > sV2 || EreignisArray[i].getTime2() < sV1) {
+        // F5 und F6 - disjunkt
+        MarkerArray[i].setMap(null);
+      } else {
+        if (EreignisArray[i].getTime1() < sV1) {
+          // F2 und F4
+          MarkerArray[i].setOpacity(0.5);
+        } else {
+          if (EreignisArray[i].getTime2() > sV2) {
+            // F1
+            MarkerArray[i].setOpacity(1);
+          } else {
+            // F3
+            MarkerArray[i].setOpacity(0.2);
+          }
+        }
+      }
+    } else {
+      // Ereignis-Typ wird nicht angezeigt
+      MarkerArray[i].setMap(null);
+    }
+  }
+
+};
+
+
+////////////////////////////////////////////
+// Interaktive Funktionen
+
+// Test - ignorieren
+jQuery( document ).ready(function() {
+
+  // jQuery('.test').append("<li>" + . + "</li>");
+
+});
 
 // Login-Box
 jQuery( document ).ready(function() {
@@ -222,46 +419,43 @@ jQuery( document ).ready(function() {
 
       });
 
-// jQuery UI Effekte
+// Zeitstrahl
 jQuery( document ).ready(function() {
-  // Zeitstrahl
-  var FULL_TIMESPAN = [1850, 1950];         // Konstanten
 
   jQuery( "#slider" ).slider({
     range: true,
     min: FULL_TIMESPAN [0],
     max: FULL_TIMESPAN [1],
     values: [FULL_TIMESPAN [0], FULL_TIMESPAN [1]],
+    slide: function (event, ui) {
+        sV1 = ui.values[0];
+        sV2 = ui.values[1];
+    }
   });
+
+  jQuery( "#slider" ).on( "slidechange", function() {
+    UpdateM();
+  });
+
 });
 
 // Legende
 jQuery( document ).ready(function() {
 
-  var showType = [true, true, true, true];  // welche Datentypen auf Karte angezeigt werden
-
-  function toggleShowenType(ID) {
-    toggleType = showType [ID];
-    toggleType = !toggleType;
-    showType [ID] = toggleType;
-  };
-
   // initialisiere Legende
   jQuery( ".legendItem" ).addClass( "activeLegendItem" );
 
   // Legenden-Funktionalität
-  jQuery( ".legendItem" ).on('click', function(){
+  jQuery( ".legendItem" ).on('click', function() {
     var clickedItem = jQuery(this);
     var clickedItemID = clickedItem.attr('rel');
 
     toggleShowenType(clickedItemID);
-
     jQuery(clickedItem).toggleClass( "activeLegendItem" );
-
-    // Variablen Test
-    jQuery(".test").append("<li>"+ clickedItemID.toString() + " " + toggleType.toString() +"</li>");
+    UpdateM();
 
   });
+
 });
 
 // Pop-In
