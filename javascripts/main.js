@@ -1,15 +1,6 @@
 jQuery.noConflict();
 
 /*
-TODO Markerfälle siehe unten
-TODO Line265 - Klassen-Deklaration vervollständigen
-TODO Line295 - Im template des Objekts muss als String HTML Code stehen,
-                welcher das Ereignis in der Liste repräsentiert
-TODO Line447 - HTML Code welcher Ereignis-Details datstellt.
-                Mglw. als Methode der Klasse?
-*/
-
-/*
 FALLUNTERSCHEIDUNG BEI MARKERN
 
 C  --------------------------     F1
@@ -261,12 +252,12 @@ function initMap() {
 };
 
 // Ereignis-Klasse
-function Ereignis (ID, name, type, /* standort,*/  lat, lng, JahrV, JahrB) {
+function Ereignis (ID, name, type, standort, lat, lng, JahrV, JahrB) {
     // TODO Deklaration vervollständigen, erst möglich nach Absprache mit Geistis
     this.id = ID;
     this.name = name;
     this.type = type;
-  //  this.standort = standort;
+    this.standort = standort;
     this.latC = lat;
     this.lngC = lng;
     this.time1 = JahrV;
@@ -300,9 +291,12 @@ function Ereignis (ID, name, type, /* standort,*/  lat, lng, JahrV, JahrB) {
       return this.time2;
     };
 
-    this.getTemplate = function() {
-      return '<li><div rel="' + this.id.toString() + '" class="listItem">' + this.name + '</div></li>'
-      // TODO Einfügen was genau über ein Ereignis in der Liste angezeigt werden soll
+    this.getTList = function() {
+      return TemplateList(this.id, this.name, this.standort, this.type);
+    };
+
+    this.getTDetail = function() {
+      return TemplateDetails();
     };
 };
 
@@ -345,22 +339,22 @@ function typeID(currentType) {
 // Ereignis-Array
 function InitializeE() {
 
-  EreignisArray.push(new Ereignis(0, "Bsp0", "Soziale Bewegung", 50.930, 11.240, 1880, 1950));
-  EreignisArray.push(new Ereignis(1, "Bsp1", "Industrie 1", 50.830, 11.840, 1850, 1920));
-  EreignisArray.push(new Ereignis(2, "Bsp2", "Industrie 3", 51.330, 10.840, 1890, 1910));
-  EreignisArray.push(new Ereignis(3, "Bsp3", "Industrie 2", 50.730, 10.840, 1870, 1990));
+  EreignisArray.push(new Ereignis(0, "Bsp0", "Soziale Bewegung", "Erfurt", 50.930, 11.240, 1880, 1950));
+  EreignisArray.push(new Ereignis(1, "Bsp1", "Industrie 1", "Erfurt", 50.830, 11.840, 1850, 1920));
+  EreignisArray.push(new Ereignis(2, "Bsp2", "Industrie 3", "Eisenach", 51.330, 10.840, 1890, 1910));
+  EreignisArray.push(new Ereignis(3, "Bsp3", "Industrie 2", "Gotha", 50.730, 10.840, 1870, 1990));
 
-  EreignisArray.push(new Ereignis(4, "Bsp4", "Soziale Bewegung", 50.784, 11.240, 1843, 1930));
-  EreignisArray.push(new Ereignis(5, "Bsp5", "Industrie 1", 50.999, 11.840, 1820, 1980));
-  EreignisArray.push(new Ereignis(6, "Bsp6", "Industrie 3", 51.206, 10.840, 1890, 1980));
-  EreignisArray.push(new Ereignis(7, "Bsp7", "Industrie 2", 50.666, 10.867, 1910, 1990));
+  EreignisArray.push(new Ereignis(4, "Bsp4", "Soziale Bewegung", "Jena", 50.784, 11.240, 1843, 1930));
+  EreignisArray.push(new Ereignis(5, "Bsp5", "Industrie 1", "Erfurt", 50.999, 11.840, 1820, 1980));
+  EreignisArray.push(new Ereignis(6, "Bsp6", "Industrie 3", "Suhl", 51.206, 10.840, 1890, 1980));
+  EreignisArray.push(new Ereignis(7, "Bsp7", "Industrie 2", "Nordhausen", 50.666, 10.867, 1910, 1990));
 
-  EreignisArray.push(new Ereignis(8, "Bsp8", "Soziale Bewegung", 50.930, 11.140, 1940, 1960));
-  EreignisArray.push(new Ereignis(9, "Bsp9", "Industrie 1", 50.830, 11.120, 1810, 1980));
-  EreignisArray.push(new Ereignis(10, "Bsp10", "Industrie 3", 51.330, 10.560, 1810, 1910));
-  EreignisArray.push(new Ereignis(11, "Bsp11", "Industrie 2", 50.730, 10.840, 1870, 1990));
+  EreignisArray.push(new Ereignis(8, "Bsp8", "Soziale Bewegung", "Erfurt", 50.930, 11.140, 1940, 1960));
+  EreignisArray.push(new Ereignis(9, "Bsp9", "Industrie 1", "Eisenach", 50.830, 11.120, 1810, 1980));
+  EreignisArray.push(new Ereignis(10, "Bsp10", "Industrie 3", "Weimar", 51.330, 10.560, 1810, 1910));
+  EreignisArray.push(new Ereignis(11, "Bsp11", "Industrie 2", "Erfurt", 50.730, 10.840, 1870, 1990));
 
-  EreignisArray.push(new Ereignis(12, ":^)", "Industrie 2", 50.730, 11.069, 1840, 1990));
+  EreignisArray.push(new Ereignis(12, ":^)", "Industrie 2", "Buxdehude", 50.730, 11.069, 1840, 1990));
 }
 
 // Marker-Array
@@ -437,7 +431,7 @@ function UpdateM() {
 // Ereignis zur Liste hinzufügen
 function AddToList(x) {
 
-  jQuery( "#EListe" ).append(EreignisArray[x].getTemplate());
+  jQuery( "#EListe" ).append(EreignisArray[x].getTList());
 
 };
 
@@ -446,7 +440,22 @@ function showDetails(x) {
 
   // TODO Was angezeigt werden muss, wenn Ereignis x in der Liste oder auf der Karte angeklickt wird
   console.log(x);
+  // EreignisArray[x].getTDetail();
 
+};
+
+
+////////////////////////////////////////////
+// Templates
+
+// Anzeige in Liste
+function TemplateList(TID, TName, TStandort, TType) {
+  return '<li rel="' + TID.toString() + '" class="' + 'listItem"><p class="' + 'listContent listCName">' + TName + '</p><p class="' + 'listContent listCInfo">' + TStandort + ', ' + TType + '</p></li>'
+};
+
+// Anzeige der Details
+function TemplateDetails() {
+  return ""
 };
 
 
@@ -456,7 +465,7 @@ function showDetails(x) {
 // Login-Box
 jQuery( document ).ready(function() {
     // run the currently selected effect
-        function runEffect() {
+        /*function runEffect() {
           // get effect type from
           var selectedEffect = $( "drop" ).val();
 
@@ -477,7 +486,7 @@ jQuery( document ).ready(function() {
         $( "#button" ).on( "click", function() {
           runEffect();
         });
-        $( "#effect" ).hide();
+        $( "#effect" ).hide();*/
 
       });
 
@@ -592,4 +601,33 @@ jQuery( document ).ready(function() {
 
     initMap();
   });
+});
+
+// Hover-overs
+jQuery( document ).ready(function() {
+
+  // Listenitem
+  jQuery(document).on('mouseenter','.listItem', function() {
+    jQuery(this).addClass( "boxShadow" );
+  });
+  jQuery(document).on('mouseleave','.listItem', function() {
+    jQuery(this).removeClass( "boxShadow" );
+  });
+
+  // Legendenitem
+  jQuery( '.legendItem' ).on('mouseenter', function() {
+    jQuery(this).addClass( "boxShadow" );
+  });
+  jQuery( '.legendItem' ).on('mouseleave', function() {
+    jQuery(this).removeClass( "boxShadow" );
+  });
+
+  // Pop-in Buttons
+  jQuery( '.pop-in_button' ).on('mouseenter', function() {
+    jQuery(this).addClass( "boxShadow" );
+  });
+  jQuery( '.pop-in_button' ).on('mouseleave', function() {
+    jQuery(this).removeClass( "boxShadow" );
+  });
+
 });
