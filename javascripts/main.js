@@ -236,6 +236,25 @@ var sV2 = FULL_TIMESPAN[1];
 
 
 ////////////////////////////////////////////
+// Browserabfrage_Firefox
+var userAgent = navigator.userAgent;
+var browser_name = navigator.appName;
+var appVersion = navigator.appVersion;
+jQuery( document ).ready(function() {
+    if((userAgent.indexOf('Firefox') > -1)){
+            document.getElementById("effect").style.width = "362px";
+            document.getElementById("effect").style.top = "-3px";
+            document.getElementById("button").style.top = "-3px";
+            document.getElementById("pop_up1").style.width = "22px";
+            document.getElementById("spoiler_left_active").style.width = "20px";
+            document.getElementById("pop_up2").style.width = "22px";
+            document.getElementById("spoiler_right_active").style.width = "20px";
+            document.getElementById("pop_up3").style.width = "22px";
+            
+    }
+})
+
+////////////////////////////////////////////
 // Datenbank-Anbindung
 
 InitializeE();
@@ -464,10 +483,8 @@ function TemplateDetails(TID, TName) {
 // Interaktive Funktionen
 
 // Login-Box
+var Login_counter = 1 ;
 jQuery( document ).ready(function() {
-
-    var Login_counter = 1 ;
-
     // run the currently selected effect
         function runEffect() {
           // get effect type from
