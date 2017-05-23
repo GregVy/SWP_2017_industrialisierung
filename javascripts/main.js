@@ -33,8 +33,7 @@ TODO Wie werden welche Fälle angezeigt?
 
 ////////////////////////////////////////////
 // Globale Variablen
-var Login_counter = 1 ;
-var rightLarge = true;
+
 // Konstanten
 var FULL_TIMESPAN = [1850, 1950];
 
@@ -297,7 +296,7 @@ function Ereignis (ID, name, type, standort, lat, lng, JahrV, JahrB) {
     };
 
     this.getTDetail = function() {
-      return TemplateDetails();
+      return TemplateDetails(this.id, this.name);
     };
 };
 
@@ -440,8 +439,9 @@ function AddToList(x) {
 function showDetails(x) {
 
   // TODO Was angezeigt werden muss, wenn Ereignis x in der Liste oder auf der Karte angeklickt wird
-  console.log(x);
-  // EreignisArray[x].getTDetail();
+  jQuery( "#spoiler_right_large" ).show();
+  jQuery( "#detailContent" ).empty();
+  jQuery( "#detailContent" ).append(EreignisArray[x].getTDetail());
 
 };
 
@@ -455,16 +455,19 @@ function TemplateList(TID, TName, TStandort, TType) {
 };
 
 // Anzeige der Details
-function TemplateDetails() {
-  return ""
+function TemplateDetails(TID, TName) {
+  return "Hallo Welt, ich bin ein Placeholder für das Ereignis " + TName + " mit der ID " + TID.toString();
 };
 
 
 ////////////////////////////////////////////
 // Interaktive Funktionen
 
-// Login-Box 
+// Login-Box
 jQuery( document ).ready(function() {
+
+    var Login_counter = 1 ;
+
     // run the currently selected effect
         function runEffect() {
           // get effect type from
@@ -479,13 +482,13 @@ jQuery( document ).ready(function() {
 
         // Set effect from select menu value
         $( "#button" ).on( "click", function() {
-          runEffect(); 
+          runEffect();
           if (Login_counter == 1) {
               Login_counter = 0;
-          $( "#button" ).hide();    
+          $( "#button" ).hide();
           } else {
               Login_counter = 1;
-              $( "#button" ).show(); 
+              $( "#button" ).show();
           }
         });
         $( "#effect" ).hide();
@@ -545,7 +548,6 @@ jQuery( document ).ready(function() {
 
   var leftActive  = true;
   var rightActive = true;
-  var rightLarge = true;
 
   jQuery('.pop-in_button').on('click', function() {
 
@@ -599,13 +601,11 @@ jQuery( document ).ready(function() {
     }
     initMap();
   });
-  
-  jQuery('.pop-in_button_large').on('click', function() {
-    jQuery( "#spoiler_right" ).toggle();
-    jQuery( "#spoiler_right_large" ).toggle();
 
-    rightLarge = !rightLarge;
+  jQuery('.pop-in_button_large').on('click', function() {
+    jQuery( "#spoiler_right_large" ).hide();
   });
+
 });
 
 // Hover-overs
