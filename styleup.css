@@ -201,3 +201,7 @@ button {
       #target {
         width: 345px;
       }
+
+      .legende {
+	display: inline-block;
+      }
