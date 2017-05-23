@@ -106,7 +106,6 @@ a:active {
     width: auto;
     height:24px;
     background: #131313;
-
     margin-top: 0%;
     margin-bottom: 0%;
 }
@@ -127,9 +126,7 @@ a:active {
     width: 60%;
     height: auto;
     padding: 10px;
-
     margin: 0%;
-
     border-style: solid;
     border-width: 1px;
     border-color: rgb(215, 215, 215);
@@ -143,46 +140,89 @@ a:active {
 
 #navcontainer ul li {
   display: inline;
-  padding: 2px;
+  padding: 2px;    
 }
 
 .text01 {
     margin-left: 6%;
     padding: 2px;
-
     position: static;
-    top:2.2px;
+    top:2.3px;
     font-family:Verdana,Arial,Helvetica,sans-serif;
     font-size:12px;
     font-weight:normal;
     color:#c8c8c8 ;
 }
 
-.toggler {
-    width: 0px;
-    height: 0px;
+.text02 {
+    position: absolute;
+    right: 105px;
+    top: 2.3px;
+    font-family:Verdana,Arial,Helvetica,sans-serif;
+    font-size:12px;
+    font-weight:normal;
+    color:#c8c8c8 ;
+    text-decoration: underline;
 }
 
+/* Login */
 #button {
     position:absolute;
-    right: 2%;
-    top:0px;
-    background-color: #1F2CCF ;
-    color: #FFCC66;
+    right: 38px;
+    top:-2px;
+    background-color: #131313 ;
+    color: #c8c8c8;
     padding: 4px;
     text-decoration: none;
-    font-size: 10px;
+    font-size: 12px;
     border: none;
-    cursor: pointer;
+    cursor: pointer;  
 }
 
 #effect {
     position: absolute;
-    right: 2% ;
-    top: 20px;
-    width:173px;
+    right: 38px ;
+    top: -2px;
+    width:415px;
     height: 63px;
-    border-style: double;
+    background-color: transparent;
+    border: none;
+}
+
+#usernameInput {
+    left: 0px;
+    background: transparent;
+    color: #c8c8c8; 
+    border-width: 0.5px; 
+    border-top-width: 2px;
+}
+
+#form-group1 {
+    width: 173px;
+    top: 2px;
+}
+#form-group2 {
+    left: 173px;
+    top: 2px;
+    width: 173px;
+}
+#passwordInput {
+    background: transparent;
+    color: #c8c8c8; 
+    border-width: 0.5px;
+    border-top-width: 2px;
+}
+
+
+.Login-Button1 {
+    left: 346px;
+    background-color: #131313 ;
+    color: #c8c8c8;
+    padding: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
 }
 
 #centre {
@@ -221,7 +261,7 @@ a:active {
     position: absolute;
     top: 0px;
     right: 0px;
-    width: 9%;
+    width: 16px;
     height: 100%;
     z-index: 3;
     border-left: double;
@@ -235,7 +275,7 @@ a:active {
     left:0%;
     top:0%;
     width:14.8%;
-    height: 84.4%;
+    height: 84.6%;
     background-color: #ebebeb;
     color: #000000;
     text-decoration: none;
@@ -252,8 +292,8 @@ a:active {
     position: absolute;
     left:0%;
     top:0%;
-    width: 20px;
-    height: 98.7%;
+    width: 16px;
+    height: 84.6%;
     background-color: #FFFFFF ;
     color: #000000;
     text-decoration: none;
@@ -270,7 +310,7 @@ a:active {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 9%;
+    width: 16px;
     height: 100%;
 
     border-right: double;
@@ -285,7 +325,7 @@ a:active {
     right: 0%;
     top:0%;
     width:14.8%;
-    height: 84.4%;
+    height: 84.6%;
     background-color: #ebebeb;
     color: #000000;
     text-decoration: none;
@@ -298,12 +338,44 @@ a:active {
     z-index: 2;
 }
 
+#spoiler_right_large {
+    position:absolute;
+    right: 0%;
+    top:0%;
+    width:50%;
+    height: 84.6%;
+    background-color: #ebebeb;
+    color: #000000;
+    text-decoration: none;
+    overflow: hidden;
+    border: double;
+    border-right: none;
+    display: none;
+    border-radius: 0px 0px 0px 0px;
+    border-color: #000000;
+    z-index: 2;
+}
+
+#pop_up3 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 16px;
+    height: 100%;
+    z-index: 3;
+    border-right: double;
+    border-radius: 0px 0px 0px 0px;
+    border-left-color: #000000;
+    z-index: 2;
+}
+
+
 #spoiler_right_active {
     position: absolute;
     right: 0%;
     top: 0%;
-    width: 20px;
-    height: 98.7%;
+    width: 16px;
+    height: 84.6%;
     background-color: #FFFFFF ;
     color: #000000;
     text-decoration: none;
@@ -321,10 +393,15 @@ a:active {
   width: 12%;
 }
 
+.pop-in_button_large {
+  height: 100%;
+  width: 12%;
+}
+
 .spoilerHeadline {
   font-size: 20px;
   text-align: center;
-  width: 90%;
+  width: auto;
   background-color: rgb(204, 204, 204);
   font-weight: 500;
 
@@ -338,7 +415,7 @@ a:active {
 }
 
 #headlineE {
-  margin-left: 10%;
+  margin-left: auto;
 }
 
 /*///////////////////////////////////////////
@@ -441,125 +518,8 @@ a:active {
   box-shadow: 0px 0px 6px black;
 }
 
-
-/*///////////////////////////////////////////
-// Log-In Buttons */
-
-#button1 {
-   position:absolute;
-    left: 30px;
-    top:0px;
-    background-color: #1F2CCF ;
-    color: #FFCC66;
-    text-decoration: underline;
-    padding: 4px;
-    font-size: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-#button2 {
-   position:absolute;
-    left: 80px;
-    top:0px;
-    background-color: #1F2CCF ;
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 4px;
-    font-size: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-#button3 {
-    position: absolute;
-    left: 120px;
-    top:0px;
-    background-color: #1F2CCF ;
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 4px;
-    font-size: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-Button_Tab_2
-#button4 {
-   position:absolute;
-    left: 30px;
-    top:0px;
-    background-color: #1F2CCF ;
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 4px;
-    font-size: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-#button5 {
-   position:absolute;
-    left: 80px;
-    top:0px;
-    background-color: #1F2CCF ;
-    color: #FFCC66;
-    text-decoration: underline;
-    padding: 4px;
-    font-size: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-#button6 {
-    position: absolute;
-    left: 120px;
-    top:0px;
-    background-color: #1F2CCF ;
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 4px;
-    font-size: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-Button_Tab_3
-#button7 {
-   position:absolute;
-    left: 30px;
-    top:0px;
-    background-color: #1F2CCF ;
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 4px;
-    font-size: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-#button8 {
-   position:absolute;
-    left: 80px;
-    top:0px;
-    background-color: #1F2CCF ;
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 4px;
-    font-size: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-#button9 {
-    position: absolute;
-    left: 120px;
-    top:0px;
-    background-color: #1F2CCF ;
-    color: #FFCC66;
-    text-decoration: underline;
-    padding: 4px;
-    font-size: 10px;
-    border: none;
-    cursor: pointer;
+/*Test Klassen*/
+#test {
+    height: 20px !important;
+    width: 20px !important;
 }

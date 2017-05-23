@@ -33,7 +33,8 @@ TODO Wie werden welche Fälle angezeigt?
 
 ////////////////////////////////////////////
 // Globale Variablen
-
+var Login_counter = 1 ;
+var rightLarge = true;
 // Konstanten
 var FULL_TIMESPAN = [1850, 1950];
 
@@ -462,21 +463,15 @@ function TemplateDetails() {
 ////////////////////////////////////////////
 // Interaktive Funktionen
 
-// Login-Box
+// Login-Box 
 jQuery( document ).ready(function() {
     // run the currently selected effect
-        /*function runEffect() {
+        function runEffect() {
           // get effect type from
           var selectedEffect = $( "drop" ).val();
 
           // Most effect types need no options passed by default
           var options = {};
-          // some effects have required parameters
-          if ( selectedEffect === "scale" ) {
-            options = { percent: 50 };
-          } else if ( selectedEffect === "size" ) {
-            options = { to: { width: 280, height: 185 } };
-          }
 
          // Run the effect
           $( "#effect" ).toggle( selectedEffect, options, 500 );
@@ -484,9 +479,16 @@ jQuery( document ).ready(function() {
 
         // Set effect from select menu value
         $( "#button" ).on( "click", function() {
-          runEffect();
+          runEffect(); 
+          if (Login_counter == 1) {
+              Login_counter = 0;
+          $( "#button" ).hide();    
+          } else {
+              Login_counter = 1;
+              $( "#button" ).show(); 
+          }
         });
-        $( "#effect" ).hide();*/
+        $( "#effect" ).hide();
 
       });
 
@@ -543,6 +545,7 @@ jQuery( document ).ready(function() {
 
   var leftActive  = true;
   var rightActive = true;
+  var rightLarge = true;
 
   jQuery('.pop-in_button').on('click', function() {
 
@@ -554,11 +557,9 @@ jQuery( document ).ready(function() {
         if (rightActive == false) {
           document.getElementById("map").style.left = "0.9%";
           document.getElementById("map").style.width = "98.1%";
-          document.getElementById("spoiler_left_active").style.height = "84.4%";
         } else {
           document.getElementById("map").style.left = "0.9%";
           document.getElementById("map").style.width = "84.3%";
-          document.getElementById("spoiler_left_active").style.height = "84.4%";
         }
       } else {
         if (rightActive == false) {
@@ -571,7 +572,7 @@ jQuery( document ).ready(function() {
       }
       leftActive = !leftActive;
 
-    } else {
+    } else if (jQuery(this).attr('rel') == 2) {
 
       jQuery( "#spoiler_right" ).toggle();
       jQuery( "#spoiler_right_active" ).toggle();
@@ -580,11 +581,9 @@ jQuery( document ).ready(function() {
         if (leftActive == false) {
           document.getElementById("map").style.left = "0.9%";
           document.getElementById("map").style.width = "98.1%";
-          document.getElementById("spoiler_right_active").style.height = "84.4%";
         } else {
           document.getElementById("map").style.right = "0.9%";
           document.getElementById("map").style.width = "84.3%";
-          document.getElementById("spoiler_right_active").style.height = "84.4%";
         }
       } else {
         if (leftActive == false) {
@@ -598,8 +597,14 @@ jQuery( document ).ready(function() {
       rightActive = !rightActive;
 
     }
-
     initMap();
+  });
+  
+  jQuery('.pop-in_button_large').on('click', function() {
+    jQuery( "#spoiler_right" ).toggle();
+    jQuery( "#spoiler_right_large" ).toggle();
+
+    rightLarge = !rightLarge;
   });
 });
 
