@@ -121,6 +121,9 @@
               title: place.name,
               position: place.geometry.location
             }));
+	    //Eintragen von Längengrad und Breitengrad in inputs
+	    document.getElementById('lng').value = place.geometry.location.lng();
+            document.getElementById('lat').value = place.geometry.location.lat();
 
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
