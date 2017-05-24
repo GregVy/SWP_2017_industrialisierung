@@ -235,13 +235,13 @@ var sV1 = FULL_TIMESPAN[0];
 var sV2 = FULL_TIMESPAN[1];
 
 
+////////////////////////////////////////////
+// Browserabfrage_Firefox
 
-////////////////////////////////////////////
-// Browserabfrage_Firefox
-var userAgent = navigator.userAgent;
-var browser_name = navigator.appName;
-var appVersion = navigator.appVersion;
 jQuery( document ).ready(function() {
+  var userAgent = navigator.userAgent;
+  var browser_name = navigator.appName;
+  var appVersion = navigator.appVersion;
     if((userAgent.indexOf('Firefox') > -1)){
             document.getElementById("effect").style.width = "362px";
             document.getElementById("effect").style.top = "-3px";
@@ -251,27 +251,10 @@ jQuery( document ).ready(function() {
             document.getElementById("pop_up2").style.width = "22px";
             document.getElementById("spoiler_right_active").style.width = "20px";
             document.getElementById("pop_up3").style.width = "22px";
-            
+
     }
 })
-////////////////////////////////////////////
-// Browserabfrage_Firefox
-var userAgent = navigator.userAgent;
-var browser_name = navigator.appName;
-var appVersion = navigator.appVersion;
-jQuery( document ).ready(function() {
-    if((userAgent.indexOf('Firefox') > -1)){
-            document.getElementById("effect").style.width = "362px";
-            document.getElementById("effect").style.top = "-3px";
-            document.getElementById("button").style.top = "-3px";
-            document.getElementById("pop_up1").style.width = "22px";
-            document.getElementById("spoiler_left_active").style.width = "20px";
-            document.getElementById("pop_up2").style.width = "22px";
-            document.getElementById("spoiler_right_active").style.width = "20px";
-            document.getElementById("pop_up3").style.width = "22px";
-            
-    }
-})
+
 
 ////////////////////////////////////////////
 // Datenbank-Anbindung
@@ -502,8 +485,8 @@ function TemplateDetails(TID, TName) {
 // Interaktive Funktionen
 
 // Login-Box
-var Login_counter = 1 ;
 jQuery( document ).ready(function() {
+    var Login_counter = 1 ;
     // run the currently selected effect
         function runEffect() {
           // get effect type from
@@ -547,6 +530,9 @@ jQuery( document ).ready(function() {
 
   jQuery( "#slider" ).on( "slidechange", function() {
     UpdateM();
+    jQuery('.selectedYear').empty();
+    jQuery('#selectedYear1').append(sV1);
+    jQuery('#selectedYear2').append(sV2);
   });
 
 });
@@ -670,5 +656,5 @@ jQuery( document ).ready(function() {
   jQuery( '.pop-in_button' ).on('mouseleave', function() {
     jQuery(this).removeClass( "boxShadow" );
   });
-  
+
 });
