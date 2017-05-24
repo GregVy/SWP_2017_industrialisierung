@@ -243,16 +243,68 @@ a:active {
     z-index: 1;
 }
 
-/* Zeitstrahl */
+
+/*///////////////////////////////////////////
+// Zeitstrahl */
+
 #slider {
     position: absolute;
     left: 4%;
-    top: 86.5%;
+    top: 40%;
     width: 92%;
     color: #008000;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
+		box-shadow: 0px 0px 2px rgb(156, 156, 156);
+
+		border-style: solid;
+		border-color: rgb(0, 0, 0);
+		border-width: 1px;
 }
 
+#sliderContainer {
+	position: absolute;
+	left: 2%;
+	top: 87.5%;
+	width: 96%;
+	height: 8%;
+	text-align: center;
+
+	border-style: solid;
+	border-color: rgb(0, 0, 0);
+	border-width: 1px;
+	background-color: #ebebeb;
+}
+
+#sliderHeader{
+	padding: 0.2%;
+	width: 30%;
+	background-color: rgb(255, 255, 255);
+
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(33, 33, 33);
+}
+
+#sliderInfo {
+	margin-top: 2%;
+	margin-left: 14.5%;
+	width: 80%;
+	background-color: rgb(255, 255, 255);
+	text-align: center;
+	padding: 1%;
+	font-size: 90%;
+	color: rgb(43, 43, 43);
+
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(33, 33, 33);
+}
+
+.selectedYear {
+	color: rgb(0, 0, 0);
+	font-weight: 500;
+	text-shadow: 1px 1px rgb(171, 171, 171);
+}
 
 /*///////////////////////////////////////////
 // Pop-In */
