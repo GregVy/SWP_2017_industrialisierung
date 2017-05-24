@@ -4,8 +4,8 @@
 
   <meta charset="utf-8">
 
-  <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
@@ -80,6 +80,7 @@
       <button rel="2" class="pop-in_button"></button>
     </div>
     <p id="headlineE" class="spoilerHeadline">Ereignisse</p>
+    <p id="sliderInfo">Anzeige von <span id="selectedYear1" class="selectedYear">1850</span> bis <span id="selectedYear2" class="selectedYear">1950</span></p>
     <ul id="EListe"></ul>
   </div>
 
@@ -89,7 +90,7 @@
       <button rel="3" class="pop-in_button_large"></button>
     </div>
     <div id="detailContent">
-      
+
     </div>
   </div>
 
@@ -97,7 +98,10 @@
   <div id="sliderSeperator" class="seperator"></div>
 
   <!-- Zeitstrahl -->
-  <div id="slider"></div>
+  <fieldset id="sliderContainer" class="boxShadow">
+   <legend id="sliderHeader" class="boxShadow" align="center">Zeitstrahl</legend>
+   <div id="slider"></div>
+  </fieldset>
 
 </div>
 
