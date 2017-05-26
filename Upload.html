@@ -2,17 +2,17 @@
 <html>
 <head>
   <title>Eingabe von Daten</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style_all.css">
   <link rel="stylesheet" type="text/css" href="style_back-end.css">
-  <!-- <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+  <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.min.js"></script>-->
+  <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
   <script type="text/javascript" src="javascripts/upload.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoa38bRVf9exkbWLQxKiICHTFwDU2OQFk&libraries=places&callback=initAutocomplete"
-         async defer></script>
-  <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoa38bRVf9exkbWLQxKiICHTFwDU2OQFk&libraries=places&callback=initMap" async defer></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 
@@ -35,67 +35,71 @@
     </a>
 </div>
 
-<fieldset>  <!-- erster Kasten für Metadaten des Ereignis -->                           
+<div id="group_full">
     
-    <legend>Daten</legend>
-    <label for="ereignis">Ereignis:</label>
-        <input id="ereignis" name="ereignis"/>
-      
-    <label for="jahra">Ereignisjahr:</label>von
-        <input id="jahra" name="jahra"/>bis
-	    <input id="jahre" name="jahre"/>
-        
-	<label for="standort">Standort:</label> 
-        <input id="standort" name="standort"/>
-      
-	<button id="karteeinblenden" onclick="displayMap()">Karte</button>
-	
-    <label for="laenge">Längengrad:</label>
-        <input id="laenge" name="laenge"/>
-       
-    <label for="breite">Breitengrad:</label>
-        <input id="breite" name="breite"/>
-           
-    <label for="desc">Beschreibung:</label>
-        <input id="desc" name="desc" style="height:200px;"/>
-      
-    <input type="submit" value="Übertragen"><br>
-	
-</fieldset>    
-<fieldset>	  <!-- Kasten für Legendenzuordnung -->
-
-    <legend> Eigenschaften für Legende </legend>
-	<input type="checkbox" name="legende" class="checkbox" value="legende1"> Platzhalter1<br>
-  	<input type="checkbox" name="legende" class="checkbox" value="legende2"> Platzhalter2<br>
-	<input type="checkbox" name="legende" class="checkbox" value="legende3"> Platzhalter3<br>
-  	<input type="checkbox" name="legende" class="checkbox" value="legende4"> Platzhalter4<br>
-	<input type="checkbox" name="legende" class="checkbox" value="legende5"> Platzhalter5<br>	    
-
-</fieldset>  
-<fieldset id="upload"> <!-- Kasten für Bildupload --> 
+    <!-- Fieldsetgroup links -->
+    <div id="group_left">
     
-	<legend>Bildupload oder URL</legend>
+        <!-- Metadaten des Ereignis -->  
+        <fieldset id="data">                               
+            <legend>Daten</legend>
+            <label for="ereignis">Ereignis:</label>
+                <input id="ereignis" name="ereignis"/>      
+            <label for="jahra">Ereignisjahr:</label>von
+                <input id="jahra" name="jahra"/>bis
+        	    <input id="jahre" name="jahre"/>        
+        	<label for="standort">Standort:</label> 
+                <input id="standort" name="standort"/>      
+        	<button class="map_pop-up"  >Karte</button>	
+            <label for="laenge">Längengrad:</label>
+                <input id="laenge" name="laenge"/>       
+            <label for="breite">Breitengrad:</label>
+                <input id="breite" name="breite"/>           
+            <label for="desc">Beschreibung:</label>
+                <input id="desc" name="desc" style="height:200px;"/>      
+            <input type="submit" value="Übertragen"><br>	
+        </fieldset>
     
-	<label id="lblupload"> Bildupload (max. 200x200)</label><br><br>
-	<input id="btnupload" name="btnupload" type="file" accept="image/jpeg, image/tiff, image/png" height="200px" width="200px" id="button" align="bottom"/>
-	
-    <label id="lblurl" for="urlupload"> URL einfügen: </label>
-	<input id="urlupload" name="urlupload" type="url"><br><br>
-    
-</fieldset>
-<fieldset>	 <!-- Kasten für Entscheidung zw. Industrialisierung und sozialen Bewegungen -->
-    <legend>Thema</legend>
-    <div>
-    
-        <input type="checkbox" name="oberpunkte" class="checkbox" value="oberpunkt1"> Industrialisierung<br>
-        
-  	    <input type="checkbox" name="oberpunkte" class="checkbox" value="oberpunkt2"> soziale Bewegungen<br>
-	
+        <!-- Legendenzuordnung(Hauptgruppen) -->
+        <fieldset id="legend_big">
+            <legend>Thema</legend>
+            <div>
+                <input type="checkbox" name="oberpunkte" class="checkbox" value="oberpunkt1"> Industrialisierung<br>
+          	    <input type="checkbox" name="oberpunkte" class="checkbox" value="oberpunkt2"> soziale Bewegungen<br>
+            </div>
+        </fieldset>   
     </div>
+    
+    <!-- Fieldsetgroup mitte -->
+    <div id="group_center">
+    
+        <!-- Bildupload -->
+        <fieldset id="upload">    
+        	<legend>Bildupload oder URL</legend>    
+        	<label id="lblupload"> Bildupload (max. 200x200)</label><br><br>
+        	<input id="btnupload" name="btnupload" type="file" accept="image/jpeg, image/tiff, image/png" height="200px" width="200px" id="button" align="bottom"/>	
+            <label id="lblurl" for="urlupload"> URL einfügen: </label>
+        	<input id="urlupload" name="urlupload" type="url"><br><br>    
+        </fieldset>
+        
+        <!-- Legendenzuordnung(Untergruppen) -->
+        <fieldset id="legend_small">
+            <legend> Eigenschaften für Legende </legend>
+        	<input type="checkbox" name="legende" class="checkbox" value="legende1"> Platzhalter1<br>
+          	<input type="checkbox" name="legende" class="checkbox" value="legende2"> Platzhalter2<br>
+        	<input type="checkbox" name="legende" class="checkbox" value="legende3"> Platzhalter3<br>
+          	<input type="checkbox" name="legende" class="checkbox" value="legende4"> Platzhalter4<br>
+        	<input type="checkbox" name="legende" class="checkbox" value="legende5"> Platzhalter5<br>
+        </fieldset>
+    </div>
+</div>
 
-</fieldset>
-  
-<!--<div id="mapup"></div><!-- Aufruf der Karte ->
-	<input id="pac-input" class="controls" type="text" placeholder="Suche">-->
+<!-- map -->
+<div id="spoiler_map">
+    <button class="map_pop-in">speichern</button>
+    <div id="map"></div>
+	<input id="pac-input" class="controls" type="text" placeholder="Suche...">  
+</div>
+ 
 </body>
 </html>
