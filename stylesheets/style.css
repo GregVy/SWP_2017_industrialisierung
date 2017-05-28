@@ -1,0 +1,180 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ///////////////////////////////// */
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(240, 236, 225);
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* unvisited link */
+a:link {
+   color: rgb(209, 209, 209);
+}
+
+/* visited link */
+a:visited {
+   color: rgb(172, 172, 172);
+}
+
+/* mouse over link */
+a:hover {
+   color: rgb(255, 255, 255);
+}
+
+/* selected link */
+a:active {
+   color: rgb(102, 102, 102);
+}
+
+/* ///////////////////////////////// */
+
+.seperator {
+    width: auto;
+    height: 4px;
+    background-color: #131313;
+    z-index: 2
+}
+
+#sliderSeperator {
+    width: 100%;
+    height: 4px;
+    background-color: #131313;
+    position: absolute;
+    top: 85.1%;
+}
+
+#header {
+    position:relative;
+    left:0px;
+    top:0px;
+    width: 100%;
+    height:24px;
+    background: #131313;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+#headline {
+    background-image: url(http://i.imgur.com/gr6m4cg.png);
+    background-repeat: repeat;
+    background-position: top right;
+    padding: 24px;
+    text-decoration-color: rgba(73, 73, 73, 0.79);
+    font-size: 40px;
+    height: auto;
+    width: auto;
+}
+
+#headlineText {
+    color: rgb(215, 215, 215);
+    width: 60%;
+    height: auto;
+    padding: 10px;
+    margin: 0%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(215, 215, 215);
+    text-shadow: 0px 0px 10px #000000;
+}
+
+#headerLinks {
+    list-style-type: none;
+    margin-right: 10%;
+}
+
+#navcontainer ul li {
+    display: inline;
+    padding: 2px;
+}
+
+.text01 {
+    margin-left: 6%;
+    padding: 2px;
+    position: static;
+    top:2.3px;
+    font-family:Verdana,Arial,Helvetica,sans-serif;
+    font-size:12px;
+    font-weight:normal;
+    color:#c8c8c8 ;
+}
+
+.text02 {
+    position: absolute;
+    right: 105px;
+    top: 2.3px;
+    font-family:Verdana,Arial,Helvetica,sans-serif;
+    font-size:12px;
+    font-weight:normal;
+    color:#c8c8c8 ;
+    text-decoration: underline;
+}
+
+/*Login*/
+#button {
+    position:absolute;
+    right: 38px;
+    top:-2px;
+    background-color: #131313 ;
+    color: #c8c8c8;
+    padding: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
