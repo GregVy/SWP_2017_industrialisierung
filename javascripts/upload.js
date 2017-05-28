@@ -84,8 +84,8 @@ function initSearch() {
         }));
     	    
         //Eintragen von Längengrad und Breitengrad in inputs
-    	document.getElementById('lng').value = place.geometry.location.lng();
-        document.getElementById('lat').value = place.geometry.location.lat();
+    	document.getElementById('laenge').value = place.geometry.location.lng();
+        document.getElementById('breite').value = place.geometry.location.lat();
     
         if (place.geometry.viewport) {
             
