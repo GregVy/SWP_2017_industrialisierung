@@ -32,13 +32,8 @@ TODO Wie werden welche Fälle angezeigt?
 */
 
 ////////////////////////////////////////////
-// Globale Variablen
-
-// Konstanten
-var FULL_TIMESPAN = [1850, 1950];
-
 // Karte
-var map;
+
 var map_option = {
     center: {lat: 50.930, lng: 11.240},
 
@@ -223,16 +218,13 @@ var map_option = {
     ]
   }
 ]
-  }
+  };
 
-// Arrays
-var MarkerArray = new Array;
-var EreignisArray = new Array;
-var showType = [true, true, true, true];
-
-// Funktionale Variablen
-var sV1 = FULL_TIMESPAN[0];
-var sV2 = FULL_TIMESPAN[1];
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), map_option);
+  InitializeM();
+  UpdateM();
+};
 
 
 ////////////////////////////////////////////
@@ -253,73 +245,7 @@ jQuery( document ).ready(function() {
             document.getElementById("pop_up3").style.width = "22px";
 
     }
-})
-
-
-////////////////////////////////////////////
-// Datenbank-Anbindung
-
-InitializeE();
-
-
-////////////////////////////////////////////
-// Karten- und Klassen-Deklaration
-
-// Karte
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), map_option);
-  InitializeM();
-  UpdateM();
-};
-
-// Ereignis-Klasse
-function Ereignis (ID, name, type, standort, lat, lng, JahrV, JahrB) {
-    // TODO Deklaration vervollständigen, erst möglich nach Absprache mit Geistis
-    this.id = ID;
-    this.name = name;
-    this.type = type;
-    this.standort = standort;
-    this.latC = lat;
-    this.lngC = lng;
-    this.time1 = JahrV;
-    this.time2 = JahrB;
-
-    this.getID = function() {
-      return this.id;
-    };
-
-    this.getName = function() {
-      return this.name;
-    };
-
-    this.getType = function() {
-      return this.type;
-    };
-
-    this.getLatC = function() {
-      return this.latC;
-    };
-
-    this.getLngC = function() {
-      return this.lngC;
-    };
-
-    this.getTime1 = function() {
-      return this.time1;
-    };
-
-    this.getTime2 = function() {
-      return this.time2;
-    };
-
-    this.getTList = function() {
-      return TemplateList(this.id, this.name, this.standort, this.type);
-    };
-
-    this.getTDetail = function() {
-      return TemplateDetails(this.id, this.name);
-    };
-};
+});
 
 
 ////////////////////////////////////////////
@@ -357,27 +283,6 @@ function typeID(currentType) {
 
 };
 
-// Ereignis-Array
-function InitializeE() {
-
-  EreignisArray.push(new Ereignis(0, "Bsp0", "Soziale Bewegung", "Erfurt", 50.930, 11.240, 1880, 1950));
-  EreignisArray.push(new Ereignis(1, "Bsp1", "Industrie 1", "Erfurt", 50.830, 11.840, 1850, 1920));
-  EreignisArray.push(new Ereignis(2, "Bsp2", "Industrie 3", "Eisenach", 51.330, 10.840, 1890, 1910));
-  EreignisArray.push(new Ereignis(3, "Bsp3", "Industrie 2", "Gotha", 50.730, 10.840, 1870, 1990));
-
-  EreignisArray.push(new Ereignis(4, "Bsp4", "Soziale Bewegung", "Jena", 50.784, 11.240, 1843, 1930));
-  EreignisArray.push(new Ereignis(5, "Bsp5", "Industrie 1", "Erfurt", 50.999, 11.840, 1820, 1980));
-  EreignisArray.push(new Ereignis(6, "Bsp6", "Industrie 3", "Suhl", 51.206, 10.840, 1890, 1980));
-  EreignisArray.push(new Ereignis(7, "Bsp7", "Industrie 2", "Nordhausen", 50.666, 10.867, 1910, 1990));
-
-  EreignisArray.push(new Ereignis(8, "Bsp8", "Soziale Bewegung", "Erfurt", 50.930, 11.140, 1940, 1960));
-  EreignisArray.push(new Ereignis(9, "Bsp9", "Industrie 1", "Eisenach", 50.830, 11.120, 1810, 1980));
-  EreignisArray.push(new Ereignis(10, "Bsp10", "Industrie 3", "Weimar", 51.330, 10.560, 1810, 1910));
-  EreignisArray.push(new Ereignis(11, "Bsp11", "Industrie 2", "Erfurt", 50.730, 10.840, 1870, 1990));
-
-  EreignisArray.push(new Ereignis(12, ":^)", "Industrie 2", "Buxdehude", 50.730, 11.069, 1840, 1990));
-}
-
 // Marker-Array
 function InitializeM() {
 
@@ -396,12 +301,29 @@ function InitializeM() {
   };
 
   // auf Karte angeklickt
+  InitializeI();
   for (var i = 0; i < MarkerArray.length; i++) {
     (function(index) {
       MarkerArray[index].addListener('click', function() {
-      showDetails(index);
+        showDetails(index);
       });
     })(i);
+  };
+
+  // in Liste angeklickt
+  jQuery(document).on('click','.listItem', function() {
+    showDetails(jQuery(this).attr('rel'));
+  });
+
+};
+
+// Info-Array
+function InitializeI() {
+
+  for (var i = 0; i < EreignisArray.length; i++) {
+    InfoArray[i] = new google.maps.InfoWindow({
+      content: "Alternative: Hier könnten ebenfalls die Details für das Ereignis " + EreignisArray[i].getName() + " angezeigt werden."
+    })
   };
 
 };
@@ -417,12 +339,12 @@ function UpdateM() {
     // Ereignis-Typ wird angezeigt
       MarkerArray[i].setMap(map);
       // Fallunterscheidung der 6 Fälle
-      if (EreignisArray[i].getTime1() > sV2 || EreignisArray[i].getTime2() < sV1) {
+      if (EreignisArray[i].getTime1() > sY2 || EreignisArray[i].getTime2() < sY1) {
         // F5 und F6 - disjunkt
         MarkerArray[i].setMap(null);
       } else {
-        if (EreignisArray[i].getTime1() < sV1) {
-          if (EreignisArray[i].getTime2() > sV2) {
+        if (EreignisArray[i].getTime1() < sY1) {
+          if (EreignisArray[i].getTime2() > sY2) {
             // F2
             MarkerArray[i].setOpacity(1);
             AddToList(i);
@@ -431,7 +353,7 @@ function UpdateM() {
             MarkerArray[i].setOpacity(0.5);
           }
         } else {
-          if (EreignisArray[i].getTime2() > sV2) {
+          if (EreignisArray[i].getTime2() > sY2) {
             // F1
             MarkerArray[i].setOpacity(1);
             AddToList(i);
@@ -457,6 +379,7 @@ function AddToList(x) {
 };
 
 // Ereignisdetails anzeigen
+var lastX = 0;
 function showDetails(x) {
 
   // TODO Was angezeigt werden muss, wenn Ereignis x in der Liste oder auf der Karte angeklickt wird
@@ -464,6 +387,9 @@ function showDetails(x) {
   jQuery( "#detailContent" ).empty();
   jQuery( "#detailContent" ).append(EreignisArray[x].getTDetail());
 
+  InfoArray[lastX].close();
+  lastX = x;
+  InfoArray[x].open(map, MarkerArray[x]);
 };
 
 
@@ -523,16 +449,16 @@ jQuery( document ).ready(function() {
     max: FULL_TIMESPAN [1],
     values: [FULL_TIMESPAN [0], FULL_TIMESPAN [1]],
     slide: function (event, ui) {
-        sV1 = ui.values[0];
-        sV2 = ui.values[1];
+        sY1 = ui.values[0];
+        sY2 = ui.values[1];
     }
   });
 
   jQuery( "#slider" ).on( "slidechange", function() {
     UpdateM();
     jQuery('.selectedYear').empty();
-    jQuery('#selectedYear1').append(sV1);
-    jQuery('#selectedYear2').append(sV2);
+    jQuery('#selectedYear1').append(sY1);
+    jQuery('#selectedYear2').append(sY2);
   });
 
 });
@@ -552,15 +478,6 @@ jQuery( document ).ready(function() {
     jQuery(clickedItem).toggleClass( "activeLegendItem" );
     UpdateM();
 
-  });
-
-});
-
-// Listener für Listenklicks
-jQuery( document ).ready(function() {
-
-  jQuery(document).on('click','.listItem', function() {
-    showDetails(jQuery(this).attr('rel'));
   });
 
 });
