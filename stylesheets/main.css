@@ -33,18 +33,6 @@ a:active {
 
 /* ///////////////////////////////// */
 /* Login */
-#button {
-    position:absolute;
-    right: 38px;
-    top:-2px;
-    background-color: #131313 ;
-    color: #c8c8c8;
-    padding: 4px;
-    text-decoration: none;
-    font-size: 12px;
-    border: none;
-    cursor: pointer;
-}
 
 #effect {
     position: absolute;
@@ -81,8 +69,10 @@ a:active {
 }
 
 
-.Login-Button1 {
-    left: 346px;
+#Login-Button1 {
+    position:absolute;
+    right: 38px;
+    top:-2px;
     background-color: #131313 ;
     color: #c8c8c8;
     padding: 4px;
@@ -90,6 +80,7 @@ a:active {
     font-size: 12px;
     border: none;
     cursor: pointer;
+    display: none;
 }
 
 #centre {
@@ -133,7 +124,7 @@ a:active {
 	left: 2%;
 	top: 87.5%;
 	width: 96%;
-	height: 8%;
+	height: 80px;
 	text-align: center;
 
 	border-style: solid;

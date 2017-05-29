@@ -430,10 +430,8 @@ jQuery( document ).ready(function() {
           runEffect();
           if (Login_counter == 1) {
               Login_counter = 0;
-          $( "#button" ).hide();
-          } else {
-              Login_counter = 1;
-              $( "#button" ).show();
+          $( "#button" ).toggle();
+          $( "#Login-Button1" ).toggle();
           }
         });
         $( "#effect" ).hide();
