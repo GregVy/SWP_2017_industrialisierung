@@ -336,45 +336,20 @@ function UpdateM() {
   for (var i = 0; i < EreignisArray.length; i++) {
 
     if (showType[typeID(EreignisArray[i].getType())]) {
-    // Ereignis-Typ wird angezeigt
-      MarkerArray[i].setMap(map);
-      // Fallunterscheidung der 6 Fälle
-      if (EreignisArray[i].getTime1() > sY2 || EreignisArray[i].getTime2() < sY1) {
-        // F5 und F6 - disjunkt
-        MarkerArray[i].setMap(null);
+    // Ereignis-Typ wird angezeigt (Legende)
+      if (EreignisArray[i].getTime() >= sY1 && EreignisArray[i].getTime() <= sY2) {
+        // Ereignis in Zeitspanne
+        MarkerArray[i].setMap(map);
+        jQuery( "#EListe" ).append(EreignisArray[i].getTList());
       } else {
-        if (EreignisArray[i].getTime1() < sY1) {
-          if (EreignisArray[i].getTime2() > sY2) {
-            // F2
-            MarkerArray[i].setOpacity(1);
-            AddToList(i);
-          } else {
-            // F4
-            MarkerArray[i].setOpacity(0.5);
-          }
-        } else {
-          if (EreignisArray[i].getTime2() > sY2) {
-            // F1
-            MarkerArray[i].setOpacity(1);
-            AddToList(i);
-          } else {
-            // F3
-            MarkerArray[i].setOpacity(0.5);
-          }
-        }
+        // Ereignis nicht in Zeitspanne
+        MarkerArray[i].setMap(null);
       }
     } else {
-      // Ereignis-Typ wird nicht angezeigt
+      // Ereignis-Typ wird nicht angezeigt (Legende)
       MarkerArray[i].setMap(null);
     }
   }
-
-};
-
-// Ereignis zur Liste hinzufügen
-function AddToList(x) {
-
-  jQuery( "#EListe" ).append(EreignisArray[x].getTList());
 
 };
 
