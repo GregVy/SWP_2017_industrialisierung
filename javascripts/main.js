@@ -228,13 +228,15 @@ function initMap() {
 
 
 ////////////////////////////////////////////
-// Browserabfrage_Firefox
+// Browserabfrage 
 
 jQuery( document ).ready(function() {
   var userAgent = navigator.userAgent;
   var browser_name = navigator.appName;
   var appVersion = navigator.appVersion;
-    if((userAgent.indexOf('Firefox') > -1)){
+  
+  // Firefox // Internet Explorer // Safari 
+    if ( userAgent.indexOf('Firefox') > -1 ){
             document.getElementById("effect").style.width = "362px";
             document.getElementById("effect").style.top = "-3px";
             document.getElementById("button").style.top = "-3px";
@@ -243,9 +245,26 @@ jQuery( document ).ready(function() {
             document.getElementById("pop_up2").style.width = "22px";
             document.getElementById("spoiler_right_active").style.width = "20px";
             document.getElementById("pop_up3").style.width = "22px";
+            document.getElementById("detailContent").style.marginLeft = "30px";
 
+    } else if ( userAgent.indexOf("Internet Explorer") > -1 || userAgent.indexOf("Trident") > 7) {
+            document.getElementById("effect").style.width = "362px";
+            document.getElementById("effect").style.top = "-3px";
+            document.getElementById("button").style.top = "-3px";
+            document.getElementById("pop_up1").style.width = "22px";
+            document.getElementById("spoiler_left_active").style.width = "20px";
+            document.getElementById("pop_up2").style.width = "22px";
+            document.getElementById("spoiler_right_active").style.width = "20px";
+            document.getElementById("pop_up3").style.width = "22px";
+            document.getElementById("detailContent").style.marginLeft = "30px";
+            document.getElementById("sliderHeader").style.textAlign = "center";
+    } else if ( userAgent.indexOf("Safari") > -1 ) { 
     }
+            
 });
+    
+    
+    
 
 
 ////////////////////////////////////////////
