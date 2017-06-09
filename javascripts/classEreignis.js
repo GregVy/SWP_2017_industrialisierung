@@ -50,20 +50,10 @@ function Ereignis (ID, name, type, standort, lat, lng, Jahr) {
 
 // Ereignis-Array
 function InitializeE() {
-
   EreignisArray.push(new Ereignis(0, "Bsp0", "Soziale Bewegung", "Erfurt", 50.930, 11.240, 1880));
-  EreignisArray.push(new Ereignis(1, "Bsp1", "Industrie 1", "Erfurt", 50.830, 11.840, 1850));
-  EreignisArray.push(new Ereignis(2, "Bsp2", "Industrie 3", "Eisenach", 51.330, 10.840, 1890));
-  EreignisArray.push(new Ereignis(3, "Bsp3", "Industrie 2", "Gotha", 50.730, 10.840, 1870));
-
-  EreignisArray.push(new Ereignis(4, "Bsp4", "Soziale Bewegung", "Jena", 50.784, 11.240, 1843));
-  EreignisArray.push(new Ereignis(5, "Bsp5", "Industrie 1", "Erfurt", 50.999, 11.840, 1820));
-  EreignisArray.push(new Ereignis(6, "Bsp6", "Industrie 3", "Suhl", 51.206, 10.840, 1782));
-  EreignisArray.push(new Ereignis(7, "Bsp7", "Industrie 2", "Nordhausen", 50.666, 10.867, 1790));
-
-  EreignisArray.push(new Ereignis(8, "Bsp8", "Soziale Bewegung", "Erfurt", 50.930, 11.140, 1840));
-  EreignisArray.push(new Ereignis(9, "Bsp9", "Industrie 1", "Eisenach", 50.830, 11.120, 1790));
-  EreignisArray.push(new Ereignis(10, "Bsp10", "Industrie 3", "Weimar", 51.330, 10.560, 1820));
-  EreignisArray.push(new Ereignis(11, "Bsp11", "Industrie 2", "Erfurt", 50.730, 10.840, 1810));
-
+  EreignisArray.push(new Ereignis(1, "Bsp1", "Produktionsgüterindustrie", "Erfurt", 50.830, 11.840, 1850));
+  EreignisArray.push(new Ereignis(2, "Bsp2", "Investitionsgüterindustrie", "Eisenach", 51.330, 10.840, 1890));
+  EreignisArray.push(new Ereignis(3, "Bsp3", "Verbrauchsgüterindustrie", "Gotha", 50.730, 10.840, 1870));
+  EreignisArray.push(new Ereignis(4, "Bsp4", "Genußmittelindustrie", "Jena", 50.784, 11.240, 1843));
+  EreignisArray.push(new Ereignis(5, "Bsp5", "Kommunikationsindustrie", "Erfurt", 50.999, 11.840, 1820));
 };
