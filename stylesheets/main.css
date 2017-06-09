@@ -69,7 +69,6 @@ a:active {
     border-top-width: 2px;
 }
 
-
 #Login-Button1 {
     position:absolute;
     right: 38px;
@@ -106,11 +105,35 @@ a:active {
 /*///////////////////////////////////////////
 // Zeitstrahl */
 
+.sYcontainer {
+  position: absolute;
+  top: 42%;
+  width: 100%;
+}
+
+.sYSlide.selectedYear {
+  border: 1px solid rgb(60, 60, 60);
+  background-color: rgb(255, 255, 255);
+  margin: 0%;
+  display: inline-block;
+  width: 5%;
+}
+
+.sYSlide.selectedYear1 {
+  position: absolute;
+  left: 2%;
+}
+
+.sYSlide.selectedYear2 {
+  position: absolute;
+  left: 93%;
+}
+
 #slider {
     position: absolute;
-    left: 4%;
-    top: 40%;
-    width: 92%;
+    left: 9%;
+    top: 42%;
+    width: 82%;
     color: #008000;
     background-color: #ffffff;
 		box-shadow: 0px 0px 2px rgb(156, 156, 156);
