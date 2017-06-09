@@ -8,7 +8,7 @@ var map;
 var EreignisArray = new Array;
 var MarkerArray = new Array;
 var InfoArray = new Array;
-var showType = [true, true, true, true];
+var showType = [true, true, true, true, true, true];
 InitializeE();
 
 // Funktionale Variablen
