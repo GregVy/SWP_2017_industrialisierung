@@ -507,9 +507,21 @@ TODO Prozentual skalierbar
 /*///////////////////////////////////////////
 // Detailnzeige */
 
+.detailLink {
+  color: rgb(46, 109, 176);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.highlightedLink {
+  color: rgb(113, 170, 231);
+}
+
 #detailContent {
 	position: static;
+  margin-top: 0.9%;
 	margin-left: 24px;
+  width: 96%;
 }
 
 /*///////////////////////////////////////////
