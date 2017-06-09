@@ -488,7 +488,7 @@ TODO Prozentual skalierbar
 
 
 /*///////////////////////////////////////////
-// Detailnzeige */
+// impressum */
 
 #impressum_container {
 	background-color: rgb(255, 255, 255);
@@ -522,6 +522,10 @@ TODO Prozentual skalierbar
   margin-top: 0.9%;
 	margin-left: 24px;
   width: 96%;
+}
+
+.infoText {
+  font-weight: 500;
 }
 
 /*///////////////////////////////////////////
