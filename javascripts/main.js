@@ -328,14 +328,14 @@ function InitializeM() {
   for (var i = 0; i < MarkerArray.length; i++) {
     (function(index) {
       MarkerArray[index].addListener('click', function() {
-        showDetails(index);
+        showInfo(index);
       });
     })(i);
   };
 
   // in Liste angeklickt
   jQuery(document).on('click','.listItem', function() {
-    showDetails(jQuery(this).attr('rel'));
+    showInfo(jQuery(this).attr('rel'));
   });
 
 };
@@ -345,9 +345,13 @@ function InitializeI() {
 
   for (var i = 0; i < EreignisArray.length; i++) {
     InfoArray[i] = new google.maps.InfoWindow({
-      content: "Alternative: Hier könnten ebenfalls die Details für das Ereignis " + EreignisArray[i].getName() + " angezeigt werden."
+      content: EreignisArray[i].getTInfo(),
     })
   };
+
+  jQuery(document).on('click','.detailLink', function() {
+    showDetails(jQuery(this).attr('rel'));
+  });
 
 };
 
@@ -376,18 +380,24 @@ function UpdateM() {
 
 };
 
-// Ereignisdetails anzeigen
+// Ereignisinfo anzeigen
 var lastX = 0;
+function showInfo(x) {
+
+  InfoArray[lastX].close();
+  jQuery( "#spoiler_right_large" ).hide();
+  lastX = x;
+  InfoArray[x].open(map, MarkerArray[x]);
+
+};
+
+// Ereignisdetails anzeigen
 function showDetails(x) {
 
-  // TODO Was angezeigt werden muss, wenn Ereignis x in der Liste oder auf der Karte angeklickt wird
   jQuery( "#spoiler_right_large" ).show();
   jQuery( "#detailContent" ).empty();
   jQuery( "#detailContent" ).append(EreignisArray[x].getTDetail());
 
-  InfoArray[lastX].close();
-  lastX = x;
-  InfoArray[x].open(map, MarkerArray[x]);
 };
 
 
@@ -397,6 +407,11 @@ function showDetails(x) {
 // Anzeige in Liste
 function TemplateList(TID, TName, TStandort, TType) {
   return '<li rel="' + TID.toString() + '" class="' + 'listItem"><p class="' + 'listContent listCName">' + TName + '</p><p class="' + 'listContent listCInfo">' + TStandort + ', ' + TType + '</p></li>'
+};
+
+// Anzeige in Infofeld
+function TemplateInfo(TID, TName, TStandort, TType, TJahr) {
+  return TName + " in " + TStandort + "<br>" + TType + " im Jahre " + TJahr + "<br><br>" + "<span rel='" + TID + "' class='detailLink'>Details anzeigen</span>"
 };
 
 // Anzeige der Details
@@ -570,5 +585,12 @@ jQuery( document ).ready(function() {
     jQuery(this).removeClass( "boxShadow" );
   });
 
-});
+  // Detaillink
+  jQuery(document).on('mouseenter','.detailLink', function() {
+    jQuery(this).addClass( "highlightedLink" );
+  });
+  jQuery(document).on('mouseleave','.detailLink', function() {
+    jQuery(this).removeClass( "highlightedLink" );
+  });
 
+});
