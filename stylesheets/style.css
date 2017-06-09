@@ -99,6 +99,13 @@ a:active {
     top: 85.1%;
 }
 
+#legendSeperator {
+	margin: 5% 0%;
+	width: 95%;
+	height: 2px;
+	background-color: #131313;
+}
+
 #header {
     position:relative;
     left:0px;
