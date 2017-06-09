@@ -1,36 +1,5 @@
 jQuery.noConflict();
 
-/*
-FALLUNTERSCHEIDUNG BEI MARKERN
-
-C  --------------------------     F1
-E     ----------------------------- 100%
-
-C         ---------------------       F2
-E     -----------------------------   100%
-
-C  --------------------------   F3
-E     -----------------       50%
-
-C         --------------------------    F4
-E     ------------------------          50%
-
-C                        ---------------------- F5
-E     ----------------                          0%
-
-C    ----------                     F6
-E                   ------------     0%
-
-C = eingestellte Zeitspanne
-V = Zeitspanne des Ereignisses
-
-6 Fälle, Fi = i-ter Fall
-
-TODO Wie werden welche Fälle angezeigt?
-     Welche Fälle kommen in die Liste?
-     --> In Gruppe klären
-*/
-
 ////////////////////////////////////////////
 // Karte
 
@@ -261,10 +230,7 @@ jQuery( document ).ready(function() {
     } else if ( userAgent.indexOf("Safari") > -1 ) { 
     }
             
-});
-    
-    
-    
+});            
 
 
 ////////////////////////////////////////////
@@ -449,8 +415,8 @@ jQuery( document ).ready(function() {
   jQuery( "#slider" ).on( "slidechange", function() {
     UpdateM();
     jQuery('.selectedYear').empty();
-    jQuery('#selectedYear1').append(sY1);
-    jQuery('#selectedYear2').append(sY2);
+    jQuery('.selectedYear1').append(sY1);
+    jQuery('.selectedYear2').append(sY2);
   });
 
 });
