@@ -411,7 +411,7 @@ function TemplateList(TID, TName, TStandort, TType) {
 
 // Anzeige in Infofeld
 function TemplateInfo(TID, TName, TStandort, TType, TJahr) {
-  return TName + " in " + TStandort + "<br>" + TType + " im Jahre " + TJahr + "<br><br>" + "<span rel='" + TID + "' class='detailLink'>Details anzeigen</span>"
+  return "<span class='infoText'>" + TName + " in " + TStandort + "</span><br>" + TType + " im Jahre " + TJahr + "<br><br>" + "<span rel='" + TID + "' class='detailLink'>Details anzeigen</span>"
 };
 
 // Anzeige der Details
