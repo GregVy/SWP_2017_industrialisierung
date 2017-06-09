@@ -197,14 +197,14 @@ function initMap() {
 
 
 ////////////////////////////////////////////
-// Browserabfrage 
+// Browserabfrage
 
 jQuery( document ).ready(function() {
   var userAgent = navigator.userAgent;
   var browser_name = navigator.appName;
   var appVersion = navigator.appVersion;
-  
-  // Firefox // Internet Explorer // Safari 
+
+  // Firefox // Internet Explorer // Safari
     if ( userAgent.indexOf('Firefox') > -1 ){
             document.getElementById("effect").style.width = "362px";
             document.getElementById("effect").style.top = "-3px";
@@ -227,10 +227,10 @@ jQuery( document ).ready(function() {
             document.getElementById("pop_up3").style.width = "22px";
             document.getElementById("detailContent").style.marginLeft = "30px";
             document.getElementById("sliderHeader").style.textAlign = "center";
-    } else if ( userAgent.indexOf("Safari") > -1 ) { 
+    } else if ( userAgent.indexOf("Safari") > -1 ) {
     }
-            
-});            
+
+});
 
 
 ////////////////////////////////////////////
@@ -246,25 +246,62 @@ function toggleShowenType(ID) {
 };
 
 // Type-Enummeration
-function typeID(currentType) {
+function typeEnum(currentType, selectedEnum) {
 
-  switch (currentType) {
-    case "Soziale Bewegung":
-        return 0
-      break;
+  if (selectedEnum == 0) {
+    switch (currentType) {
+      case "Soziale Bewegung":
+          return 0
+        break;
 
-    case "Industrie 1":
-        return 1
-      break;
+      case "Produktionsgüterindustrie":
+          return 1
+        break;
 
-    case "Industrie 2":
-        return 2
-      break;
+      case "Investitionsgüterindustrie":
+          return 2
+        break;
 
-    case "Industrie 3":
-        return 3
-      break;
-    }
+      case "Verbrauchsgüterindustrie":
+          return 3
+        break;
+
+      case "Genußmittelindustrie":
+          return 4
+        break;
+
+      case "Kommunikationsindustrie":
+          return 5
+        break;
+      }
+  } else {
+
+    switch (currentType) {
+      case "Soziale Bewegung":
+          return "../typeIcons/0_marker.png"
+        break;
+
+      case "Produktionsgüterindustrie":
+          return "../typeIcons/1_marker.png"
+        break;
+
+      case "Investitionsgüterindustrie":
+          return "../typeIcons/2_marker.png"
+        break;
+
+      case "Verbrauchsgüterindustrie":
+          return "../typeIcons/3_marker.png"
+        break;
+
+      case "Genußmittelindustrie":
+          return "../typeIcons/4_marker.png"
+        break;
+
+      case "Kommunikationsindustrie":
+          return "../typeIcons/5_marker.png"
+        break;
+      }
+  }
 
 };
 
@@ -282,6 +319,7 @@ function InitializeM() {
         lng: currentEreignis.getLngC(),
       },
       title: currentEreignis.getName(),
+      icon: typeEnum(currentEreignis.getType(), 1),
     });
   };
 
@@ -320,7 +358,7 @@ function UpdateM() {
 
   for (var i = 0; i < EreignisArray.length; i++) {
 
-    if (showType[typeID(EreignisArray[i].getType())]) {
+    if (showType[typeEnum(EreignisArray[i].getType(), 0)]) {
     // Ereignis-Typ wird angezeigt (Legende)
       if (EreignisArray[i].getTime() >= sY1 && EreignisArray[i].getTime() <= sY2) {
         // Ereignis in Zeitspanne
@@ -533,3 +571,4 @@ jQuery( document ).ready(function() {
   });
 
 });
+
