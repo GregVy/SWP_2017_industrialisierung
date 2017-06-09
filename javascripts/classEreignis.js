@@ -1,15 +1,15 @@
 var EreignisArray = new Array;
 
 // Ereignis-Klasse
-function Ereignis (ID, name, type, standort, lat, lng, Jahr) {
-    // TODO Deklaration vervollständigen, erst möglich nach Absprache mit Geistis
+function Ereignis (ID, name, type, standort, lat, lng, jahr, beschreibung) {
     this.id = ID;
     this.name = name;
     this.type = type;
     this.standort = standort;
     this.latC = lat;
     this.lngC = lng;
-    this.time = Jahr;
+    this.time = jahr;
+    this.beschreibung = beschreibung;
 
     this.getID = function() {
       return this.id;
@@ -39,8 +39,16 @@ function Ereignis (ID, name, type, standort, lat, lng, Jahr) {
       return this.time;
     };
 
+    this.getBeschreibung = function() {
+      return this.beschreibung;
+    };
+
     this.getTList = function() {
       return TemplateList(this.id, this.name, this.standort, this.type);
+    };
+
+    this.getTInfo = function() {
+      return TemplateInfo(this.id, this.name, this.standort, this.type, this.time);
     };
 
     this.getTDetail = function() {
