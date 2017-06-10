@@ -47,30 +47,19 @@
             <legend>Daten</legend>
             <label for="ereignis">Ereignis:</label>
                 <input id="ereignis" name="ereignis"/>
-            <label for="jahra">Ereignisjahr:</label>von
-                <input id="jahra" name="jahra"/>bis
+            <label for="jahra">Ereignisjahr:</label>
         	    <input id="jahre" name="jahre"/>
         	<label for="standort">Standort:</label>
                 <input id="standort" name="standort"/>
         	<button class="map_pop-up" >Karte</button>
             <label for="laenge">Längengrad:</label>
-                <input id="laenge" name="laenge"/>
+                <input id="laenge" name="laenge" disabled="disabled"/>
             <label for="breite">Breitengrad:</label>
-                <input id="breite" name="breite"/>
+                <input id="breite" name="breite" disabled="disabled"/>
             <label for="desc">Beschreibung:</label>
                 <input id="desc" name="desc" style="height:200px;"/>
             <input type="submit" value="Übertragen"><br>
         </fieldset>
-
-        <!-- Legendenzuordnung(Hauptgruppen) -->
-        <fieldset id="legend_big">
-            <legend>Thema</legend>
-            <div>
-                <input type="checkbox" name="oberpunkte" class="checkbox" value="oberpunkt1"> Industrialisierung<br>
-          	    <input type="checkbox" name="oberpunkte" class="checkbox" value="oberpunkt2"> soziale Bewegungen<br>
-            </div>
-        </fieldset>
-    </div>
 
     <!-- Fieldsetgroup mitte -->
     <div id="group_center">
@@ -84,9 +73,9 @@
         	<input id="urlupload" name="urlupload" type="url"><br><br>
         </fieldset>
 
-        <!-- Legendenzuordnung(Untergruppen) -->
+        <!-- Legendenzuordnung -->
         <fieldset id="legend_small">
-            <legend> Eigenschaften für Legende </legend>
+            <legend> Legende </legend>
         	<input type="checkbox" name="legende" class="checkbox" value="legende1"> Platzhalter1<br>
           	<input type="checkbox" name="legende" class="checkbox" value="legende2"> Platzhalter2<br>
         	<input type="checkbox" name="legende" class="checkbox" value="legende3"> Platzhalter3<br>
