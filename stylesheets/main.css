@@ -1,5 +1,6 @@
 html, body {
-  min-width: 1400px;
+  min-width: 1500px;
+  min-height: 750px;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -252,7 +253,7 @@ a:active {
     border-radius: 0px 0px 0px 0px;
     border-left-color: #000000;
 
-    z-index: 3;
+    z-index: 5;
 }
 
 #spoiler_right {
@@ -446,8 +447,29 @@ TODO Prozentual skalierbar
 /*///////////////////////////////////////////
 // Listeninhalt */
 
+#EGroup {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    height: 65px;
+    background-color: #ebebeb;
+    z-index: 4 ;
+}
+
+#EGroup_big {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    height: 100%;
+    overflow: auto;
+    z-index: 3;
+}
 #EListe {
+    position: absolute;
+    width: 100%;
+    top: 63px;
     list-style-type: none;
+    z-index: 3;
 }
 
 .listItem {
@@ -464,6 +486,7 @@ TODO Prozentual skalierbar
     border-left-width: 4px;
     box-shadow: 0px 0px 2px grey;
     cursor: pointer;
+    z-index: 3;
 }
 
 
@@ -486,9 +509,8 @@ TODO Prozentual skalierbar
     color: rgb(65, 65, 65);
 }
 
-
 /*///////////////////////////////////////////
-// Detailnzeige */
+// Detailanzeige */
 
 #impressum_container {
 	background-color: rgb(255, 255, 255);
@@ -519,9 +541,10 @@ TODO Prozentual skalierbar
 
 #detailContent {
 	position: static;
-  margin-top: 0.9%;
-	margin-left: 24px;
-  width: 96%;
+	margin-top: 0.9%;
+	left: 24px;
+    width: 96%;
+    height: 100%;
 }
 
 /*///////////////////////////////////////////
@@ -529,10 +552,4 @@ TODO Prozentual skalierbar
 
 .boxShadow {
     box-shadow: 0px 0px 6px black;
-}
-
-/*Test Klassen*/
-#test {
-    height: 20px !important;
-    width: 20px !important;
 }
