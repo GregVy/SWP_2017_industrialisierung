@@ -284,8 +284,7 @@ a:active {
     text-decoration: none;
     overflow: hidden;
     border: double;
-    border-right: none;
-    display: none;
+    border-right: none; 
     border-radius: 0px 0px 0px 0px;
     border-color: #000000;
     z-index: 2;
@@ -509,6 +508,27 @@ TODO Prozentual skalierbar
     color: rgb(65, 65, 65);
 }
 
+
+/*///////////////////////////////////////////
+// Ergebnisanzeige */
+
+#detailHeader {
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+#detailPicture {
+    margin-right: 10px;
+    border: double;
+    border-color: #000000;
+    float: left;
+}
+
+#detailContent {
+    position: absolute;
+    top: 35px;
+}
+
 /*///////////////////////////////////////////
 // Detailanzeige */
 
@@ -539,8 +559,6 @@ TODO Prozentual skalierbar
   color: rgb(113, 170, 231);
 }
 
-#detailContent {
-	position: static;
 	margin-top: 0.9%;
 	left: 24px;
     width: 96%;
