@@ -559,10 +559,13 @@ TODO Prozentual skalierbar
   color: rgb(113, 170, 231);
 }
 
+#details {
+	position: absolute;
 	margin-top: 0.9%;
 	left: 24px;
     width: 96%;
     height: 100%;
+    overflow: auto;
 }
 
 /*///////////////////////////////////////////
