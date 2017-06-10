@@ -510,7 +510,7 @@ TODO Prozentual skalierbar
 
 
 /*///////////////////////////////////////////
-// Ergebnisanzeige */
+// Detailnzeige */
 
 #detailHeader {
     text-decoration: underline;
@@ -529,28 +529,12 @@ TODO Prozentual skalierbar
     top: 35px;
 }
 
-/*///////////////////////////////////////////
-// Detailanzeige */
-
-#impressum_container {
-	background-color: rgb(255, 255, 255);
-	width: 92%;
-	height: 92%;
-	margin: 2% auto;
-	padding: 1.5%;
-
-	border-style: solid;
-	border-color: rgb(0, 0, 0);
-	border-width: 2px;
-	border-radius: 10px;
+.infoText {
+  font-weight: 500;
 }
 
-
-/*///////////////////////////////////////////
-// Detailnzeige */
-
 .detailLink {
-  color: rgb(46, 109, 176);
+  color: rgb(36, 96, 161);
   cursor: pointer;
   text-decoration: underline;
 }
@@ -567,6 +551,24 @@ TODO Prozentual skalierbar
     height: 100%;
     overflow: auto;
 }
+
+
+/*///////////////////////////////////////////
+// Impressum */
+
+#impressum_container {
+	background-color: rgb(255, 255, 255);
+	width: 92%;
+	height: 92%;
+	margin: 2% auto;
+	padding: 1.5%;
+
+	border-style: solid;
+	border-color: rgb(0, 0, 0);
+	border-width: 2px;
+	border-radius: 10px;
+}
+
 
 /*///////////////////////////////////////////
 // Hover-overs */
