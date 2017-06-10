@@ -395,8 +395,15 @@ function showInfo(x) {
 function showDetails(x) {
 
   jQuery( "#spoiler_right_large" ).show();
-  jQuery( "#detailContent" ).empty();
-  jQuery( "#detailContent" ).append(EreignisArray[x].getTDetail());
+
+  jQuery( "#detailHeader" ).empty();
+  jQuery( "#detailPicture" ).attr("src", "");
+  jQuery( "#detailPicture" ).attr("srcset", "");
+  jQuery( "#detailParagraph" ).empty();
+
+  jQuery( "#detailHeader" ).append(EreignisArray[x].getTime() + " - " + EreignisArray[x].getName());
+  jQuery( "#detailParagraph" ).append(EreignisArray[x].getBeschreibung());
+  // TODO jQuery( "#detailPicture" ).attr("src", ""); funktioniert nicht
 
 };
 
@@ -412,11 +419,6 @@ function TemplateList(TID, TName, TStandort, TType) {
 // Anzeige in Infofeld
 function TemplateInfo(TID, TName, TStandort, TType, TJahr) {
   return "<span class='infoText'>" + TName + " in " + TStandort + "</span><br>" + TType + " im Jahre " + TJahr + "<br><br>" + "<span rel='" + TID + "' class='detailLink'>Details anzeigen</span>"
-};
-
-// Anzeige der Details
-function TemplateDetails(TID, TName) {
-  return "Hallo Welt, ich bin ein Placeholder für das Ereignis " + TName + " mit der ID " + TID.toString();
 };
 
 
