@@ -146,6 +146,10 @@ a:active {
 		border-width: 1px;
 }
 
+.ui-widget-header {
+    background-color: #000000 !important;    
+}
+
 #sliderContainer {
 	position: absolute;
 	left: 2%;
@@ -285,6 +289,7 @@ a:active {
     overflow: hidden;
     border: double;
     border-right: none; 
+    display: none;
     border-radius: 0px 0px 0px 0px;
     border-color: #000000;
     z-index: 2;
@@ -316,6 +321,7 @@ a:active {
     text-decoration: none;
     display: none;
     border: double;
+    border-right: none;
     border-radius: 0px 0px 0px 0px;
     border-color: #000000;
     z-index: 2;
