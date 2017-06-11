@@ -198,54 +198,6 @@ a:active {
 /*///////////////////////////////////////////
 // Pop-In */
 
-#pop_up1 {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 16px;
-    height: 100%;
-    z-index: 3;
-    border-left: double;
-    border-radius: 0px 0px 0px 0px;
-    border-left-color: #000000;
-    background-color: rgb(235, 235, 235);
-    z-index: 2;
-}
-
-#spoiler_left {
-    position: absolute;
-    left:0%;
-    top:0%;
-    width:14.8%;
-    height: 84.6%;
-    background-color: #ebebeb;
-    color: #000000;
-    text-decoration: none;
-    overflow: hidden;
-    border: double ;
-    border-left: none;
-    border-radius: 0px 0px 0px 0px;
-    border-color: #000000;
-    z-index: 2;
-}
-
-#spoiler_left_active {
-    position: absolute;
-    left:0%;
-    top:0%;
-    width: 16px;
-    height: 84.6%;
-    background-color: #FFFFFF ;
-    color: #000000;
-    text-decoration: none;
-    display: none;
-    border: double;
-    border-radius: 0px 0px 0px 0px;
-    border-color: #000000;
-
-    z-index: 2;
-}
-
 #pop_up2 {
     position: absolute;
     top: 0px;
