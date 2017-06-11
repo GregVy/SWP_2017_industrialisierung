@@ -209,23 +209,19 @@ jQuery( document ).ready(function() {
             document.getElementById("effect").style.width = "362px";
             document.getElementById("effect").style.top = "-3px";
             document.getElementById("button").style.top = "-3px";
-            document.getElementById("pop_up1").style.width = "22px";
-            document.getElementById("spoiler_left_active").style.width = "20px";
             document.getElementById("pop_up2").style.width = "22px";
             document.getElementById("spoiler_right_active").style.width = "20px";
             document.getElementById("pop_up3").style.width = "22px";
-            document.getElementById("detailContent").style.marginLeft = "30px";
+            document.getElementById("detailContent").style.marginLeft = "3px";
 
     } else if ( userAgent.indexOf("Internet Explorer") > -1 || userAgent.indexOf("Trident") > 7) {
             document.getElementById("effect").style.width = "362px";
             document.getElementById("effect").style.top = "-3px";
             document.getElementById("button").style.top = "-3px";
-            document.getElementById("pop_up1").style.width = "22px";
-            document.getElementById("spoiler_left_active").style.width = "20px";
             document.getElementById("pop_up2").style.width = "22px";
             document.getElementById("spoiler_right_active").style.width = "20px";
             document.getElementById("pop_up3").style.width = "22px";
-            document.getElementById("detailContent").style.marginLeft = "30px";
+            document.getElementById("detailContent").style.marginLeft = "3px";
             document.getElementById("sliderHeader").style.textAlign = "center";
     } else if ( userAgent.indexOf("Safari") > -1 ) {
     }
