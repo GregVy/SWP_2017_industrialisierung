@@ -278,19 +278,19 @@ function typeEnum(currentType, selectedEnum) {
         break;
 
       case "Produktionsgüterindustrie":
-          return "../typeIcons/Produktionsguterindustrie_marker.png"
+          return "../typeIcons/Produktionsgüterindustrie_marker.png"
         break;
 
       case "Investitionsgüterindustrie":
-          return "../typeIcons/Investitionsguterindustrie_marker.png"
+          return "../typeIcons/Investitionsgüterindustrie_marker.png"
         break;
 
       case "Verbrauchsgüterindustrie":
-          return "../typeIcons/Verbrauchsguterindustrie_marker.png"
+          return "../typeIcons/Verbrauchsgüterindustrie_marker.png"
         break;
 
       case "Genußmittelindustrie":
-          return "../typeIcons/Genusmittelindustrie_marker.png"
+          return "../typeIcons/Genußmittelindustrie_marker.png"
         break;
 
       case "Kommunikationswesen":
