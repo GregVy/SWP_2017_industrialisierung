@@ -97,11 +97,15 @@ a:active {
 /* Map */
 #map {
     position: absolute;
-    left: 14.8%;
+    left: 0px;
     top: 0px;
     height: 85%;
-    width: 70.4%;
+    width: 99%;
     z-index: 1;
+}
+
+.gmnoprint:nth-child(9) {
+    left: 0%;
 }
 
 
