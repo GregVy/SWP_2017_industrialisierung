@@ -210,7 +210,7 @@ jQuery( document ).ready(function() {
             document.getElementById("effect").style.top = "-3px";
             document.getElementById("button").style.top = "-3px";
             document.getElementById("pop_up2").style.width = "22px";
-            document.getElementById("spoiler_right_active").style.width = "20px";
+            document.getElementById("spoiler_right_active").style.width = "22px";
             document.getElementById("pop_up3").style.width = "22px";
             document.getElementById("detailContent").style.marginLeft = "3px";
 
