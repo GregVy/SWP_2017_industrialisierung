@@ -62,9 +62,9 @@ function Ereignis (ID, name, type, standort, lat, lng, jahr, beschreibung, image
 // Ereignis-Array
 function InitializeE() {
   EreignisArray.push(new Ereignis(0, "Bsp0", "Soziale Bewegung", "Erfurt", 50.930, 11.240, 1880, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
-  EreignisArray.push(new Ereignis(1, "Bsp1", "Produktionsgüterindustrie", "Erfurt", 50.830, 11.840, 1850, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
-  EreignisArray.push(new Ereignis(2, "Bsp2", "Investitionsgüterindustrie", "Eisenach", 51.330, 10.840, 1890, "Ich bin ein Beschreibungstext", "Platzhalter.png"));		 +  EreignisArray.push(new Ereignis(2, "Bsp2", "Kommunikationswesen", "Eisenach", 51.330, 10.840, 1890, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
-  EreignisArray.push(new Ereignis(3, "Bsp3", "Verbrauchsgüterindustrie", "Gotha", 50.730, 10.840, 1870, "Ich bin ein Beschreibungstext", "Platzhalter.png"));		 +  EreignisArray.push(new Ereignis(3, "Bsp3", "Industrie", "Gotha", 50.730, 10.840, 1870, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
-  EreignisArray.push(new Ereignis(4, "Bsp4", "Genußmittelindustrie", "Jena", 50.784, 11.240, 1843, "Ich bin ein Beschreibungstext", "Platzhalter.png"));		 +  EreignisArray.push(new Ereignis(2, "Bsp4", "Kommunikationswesen", "Jena", 50.784, 11.240, 1843, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
-  EreignisArray.push(new Ereignis(5, "Bsp5", "Kommunikationsindustrie", "Erfurt", 50.999, 11.840, 1820, "Ich bin ein Beschreibungstext", "Platzhalter.png"));		 +  EreignisArray.push(new Ereignis(3, "Bsp5", "Industrie", "Erfurt", 50.999, 11.840, 1820, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
+  EreignisArray.push(new Ereignis(1, "Bsp1", "ProduktionsgÃ¼terindustrie", "Erfurt", 50.830, 11.840, 1850, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
+  EreignisArray.push(new Ereignis(2, "Bsp2", "InvestitionsgÃ¼terindustrie", "Eisenach", 51.330, 10.840, 1890, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
+  EreignisArray.push(new Ereignis(3, "Bsp3", "VerbrauchsgÃ¼terindustrie", "Gotha", 50.730, 10.840, 1870, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
+  EreignisArray.push(new Ereignis(4, "Bsp4", "GenuÃŸmittelindustrie", "Jena", 50.784, 11.240, 1843, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
+  EreignisArray.push(new Ereignis(5, "Bsp5", "Kommunikationswesen", "Erfurt", 50.999, 11.840, 1820, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
  };
