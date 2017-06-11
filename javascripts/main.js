@@ -498,60 +498,17 @@ jQuery( document ).ready(function() {
 // Pop-In
 jQuery( document ).ready(function() {
 
-  var leftActive  = true;
   var rightActive = true;
 
   jQuery('.pop-in_button').on('click', function() {
 
-    if (jQuery(this).attr('rel') == 1) {
-      jQuery( "#spoiler_left" ).toggle();
-      jQuery( "#spoiler_left_active" ).toggle();
-
-      if (leftActive == true) {
-        if (rightActive == false) {
-          document.getElementById("map").style.left = "0.9%";
-          document.getElementById("map").style.width = "98.1%";
-        } else {
-          document.getElementById("map").style.left = "0.9%";
-          document.getElementById("map").style.width = "84.3%";
-        }
-      } else {
-        if (rightActive == false) {
-          document.getElementById("map").style.left = "14.8%";
-          document.getElementById("map").style.width = "84.3%";
-        } else {
-          document.getElementById("map").style.left = "14.8%";
-          document.getElementById("map").style.width = "70.4%";
-        }
-      }
-      leftActive = !leftActive;
-
-    } else if (jQuery(this).attr('rel') == 2) {
+    if (jQuery(this).attr('rel') == 2) {
 
       jQuery( "#spoiler_right" ).toggle();
       jQuery( "#spoiler_right_active" ).toggle();
 
-      if (rightActive == true) {
-        if (leftActive == false) {
-          document.getElementById("map").style.left = "0.9%";
-          document.getElementById("map").style.width = "98.1%";
-        } else {
-          document.getElementById("map").style.right = "0.9%";
-          document.getElementById("map").style.width = "84.3%";
-        }
-      } else {
-        if (leftActive == false) {
-          document.getElementById("map").style.left = "0.9%";
-          document.getElementById("map").style.width = "84.3%";
-        } else {
-          document.getElementById("map").style.right = "14.8%";
-          document.getElementById("map").style.width = "70.4%";
-        }
-      }
       rightActive = !rightActive;
-
     }
-    initMap();
   });
 
   jQuery('.pop-in_button_large').on('click', function() {
