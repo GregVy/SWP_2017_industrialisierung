@@ -65,6 +65,4 @@ function InitializeE() {
   EreignisArray.push(new Ereignis(1, "Bsp1", "Transportwesen", "Erfurt", 50.830, 11.840, 1850, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
   EreignisArray.push(new Ereignis(2, "Bsp2", "Kommunikationswesen", "Eisenach", 51.330, 10.840, 1890, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
   EreignisArray.push(new Ereignis(3, "Bsp3", "Industrie", "Gotha", 50.730, 10.840, 1870, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
-  EreignisArray.push(new Ereignis(2, "Bsp4", "Kommunikationswesen", "Jena", 50.784, 11.240, 1843, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
-  EreignisArray.push(new Ereignis(3, "Bsp5", "Industrie", "Erfurt", 50.999, 11.840, 1820, "Ich bin ein Beschreibungstext", "Platzhalter.png"));
 };
