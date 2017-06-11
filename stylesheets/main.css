@@ -235,7 +235,7 @@ a:active {
 
 #spoiler_right_large {
     position:absolute;
-    right: 0%;
+    left: 0%;
     top:0%;
     width:50%;
     height: 84.6%;
@@ -254,12 +254,13 @@ a:active {
 #pop_up3 {
     position: absolute;
     top: 0px;
-    left: 0px;
+    right: 0px;
     width: 16px;
     height: 100%;
     z-index: 3;
     background-color: rgb(235, 235, 235);
     border-right: double;
+    border-left: double;
     border-radius: 0px 0px 0px 0px;
     border-left-color: #000000;
     z-index: 2;
@@ -506,7 +507,7 @@ TODO Prozentual skalierbar
 #details {
 	position: absolute;
 	margin-top: 0.9%;
-	left: 24px;
+	right: 24px;
     width: 96%;
     height: 100%;
     overflow: auto;
