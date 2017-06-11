@@ -47,7 +47,8 @@
 .map_pop-in {
     position: absolute;
     top: 0px;
-    right: 0px;background-color: #131313 ;
+    right: 0px;
+    background-color: #131313 ;
     color: #c8c8c8;
     padding: 4px;
     text-decoration: none;
@@ -71,7 +72,7 @@
     top: 0px;
   	margin: 16px;
  	padding: 16px;
-  	width: 416px;
+  	width: 446px;
   	border: 0.1em solid #000;
 	border-radius: 10px;
 	display: inline-block;
@@ -84,7 +85,7 @@
     top: 280px;
   	margin: 16px;
  	padding: 16px;
-  	width: 416px;
+  	width: 446px;
   	border: 0.1em solid #000;
 	border-radius: 10px;
 	float:left;
@@ -127,7 +128,7 @@ button {
 }
 
 #lblurl {
-	width: 25%;
+	width: 24.4%;
 }
 
 #urlupload {
