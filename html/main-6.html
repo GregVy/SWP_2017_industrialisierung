@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/main-6.css">
+  <link rel="stylesheet" href="../jquery-ui-1.12.1/jquery-ui.min.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../javascripts/classEreignis-6.js"></script>
+  <script type="text/javascript" src="../javascripts/global.js"></script>
+  <script type="text/javascript" src="../javascripts/main-6.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsK4FVsPOflshDd4-X7ocaw1N2_wLMi2U&libraries=visualization&callback=initMap" async defer></script>
+
+</head>
+<body>
+
+<!-- Header -->
+<div id="header">
+  <div id="navcontainer" class="text01">
+    <ul id="headerLinks">
+      <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+  </div>
+  <div class="toggler">
+    <div id="effect" class="ui-widget-content ui-corner-all">
+        <input name="Benutzername" type="text" class="form-control" id="usernameInput" placeholder="Benutzername">
+        <input name="Password" type="password" class="form-control" id="passwordInput" placeholder="Password">
+    </div>
+  </div>
+  <button id="button" class="ui-state-default">Anmelden</button>
+  <a href="Upload.html" title>
+        <button type="submit" id="Login-Button1">Anmelden</button>
+  </a>
+</div>
+
+<!-- Headline -->
+<div id="headline" align="center">
+    <h1 id="headlineText">Industrialisierung und soziale Bewegungen in <strong>Th&uuml;ringen</strong></h1>
+</div>
+
+<!-- Seperator -->
+<div class="seperator"></div>
+
+<!-- Legende -->
+<div id= "legend">
+    <ul id="legendList">
+      <li rel="0" class="legendItem"><div><img class="legendIcon" src="../typeIcons/sozialeBewegung.png"/></div><p class="legendText">Soziale Bewegung</p></li>
+      <li rel="1" class="legendItem"><div><img class="legendIcon" src="../typeIcons/Produktionsg&uuml;terindustrie.png"/></div><p class="legendText">Produktionsg&uuml;ter- <br> industrie</p></li>
+      <li rel="2" class="legendItem"><div><img class="legendIcon" src="../typeIcons/Investitionsg&uuml;terindustrie.png"/></div><p class="legendText">Investitionsg&uuml;ter- <br> industrie</p></li>
+      <li rel="3" class="legendItem"><div><img class="legendIcon" src="../typeIcons/Verbrauchsg&uuml;terindustrie.png"/></div><p class="legendText">Verbrauchsg&uuml;ter- <br> industrie</p></li>
+      <li rel="4" class="legendItem"><div><img class="legendIcon" src="../typeIcons/Genu&szlig;mittelindustrie.png"/></div><p class="legendText">Genu&szlig;mittel- <br> industrie</p></li>
+      <li rel="5" class="legendItem"><div><img class="legendIcon" src="../typeIcons/Kommunikationswesen.png"/></div><p class="legendText">Kommunikations- <br> wesen</p></li>
+    </ul>
+</div>
+
+<!-- Hauptfunktionen -->
+<div id="centre">
+
+  <!-- Karte -->
+  <div id="map"></div>
+
+  <!-- Rechter Spoiler -->
+  <!-- Ereignisliste -->
+  <div id="spoiler_right_active">
+    <button rel="2" class="pop-in_button"></button>
+  </div>
+  <div id="spoiler_right">
+    <div id="pop_up2">
+      <button rel="2" class="pop-in_button"></button>
+    </div>
+    <div id="EGroup">
+    <p id="headlineE" class="spoilerHeadline">Ereignisse</p>
+    <p id="sliderInfo">Anzeige von <span class="selectedYear selectedYear1">1780</span> bis <span class="selectedYear selectedYear2">1914</span></p>
+    </div>
+    <div id="EGroup_big">
+    <ul id="EListe"></ul>
+    </div>
+  </div>
+
+  <!-- Detailanzeige -->
+  <div id="spoiler_right_large">
+    <div id="pop_up3">
+      <button rel="3" class="pop-in_button_large"></button>
+    </div>
+    <div id="details">
+        <h1 id="detailHeader">Jahr - Ereignis</h1>
+        <div id="detailContent"><img id="detailPicture" /><p id="detailParagraph"></p></div>
+    </div>
+  </div>
+
+  <!-- Seperator -->
+  <div id="sliderSeperator" class="seperator"></div>
+
+  <!-- Zeitstrahl -->
+  <fieldset id="sliderContainer" class="boxShadow">
+    <div class="sYcontainer">
+      <div class="sYSlide selectedYear selectedYear1">1780</div>
+      <div class="sYSlide selectedYear selectedYear2">1914</div>
+    </div>
+   <legend id="sliderHeader" class="boxShadow" align="center">Zeitstrahl</legend>
+   <div id="slider"></div>
+  </fieldset>
+
+</div>
+
+</body>
+</html>
