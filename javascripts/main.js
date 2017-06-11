@@ -16,7 +16,7 @@ var map_option = {
     streetViewControl: false,
     rotateControl: false,
     fullscreenControl: false,
-
+    
     styles: [
   {
     "featureType": "administrative",
@@ -250,15 +250,15 @@ function typeEnum(currentType, selectedEnum) {
           return 0
         break;
 
-      case "Produktionsgüterindustrie":
+      case "Transportwesen":
           return 1
         break;
 
-      case "Investitionsgüterindustrie":
+      case "Kommunikationswesen":
           return 2
         break;
 
-      case "Verbrauchsgüterindustrie":
+      case "Industrie":
           return 3
         break;
 
@@ -274,19 +274,19 @@ function typeEnum(currentType, selectedEnum) {
 
     switch (currentType) {
       case "Soziale Bewegung":
-          return "../typeIcons/0_marker.png"
+          return "../typeIcons/sozialeBewegung_marker.png"
         break;
 
-      case "Produktionsgüterindustrie":
-          return "../typeIcons/1_marker.png"
+      case "Transportwesen":
+          return "../typeIcons/Transportwesen_marker.png"
         break;
 
-      case "Investitionsgüterindustrie":
-          return "../typeIcons/2_marker.png"
+      case "Kommunikationswesen":
+          return "../typeIcons/Kommunikationswesen_marker.png"
         break;
 
-      case "Verbrauchsgüterindustrie":
-          return "../typeIcons/3_marker.png"
+      case "Industrie":
+          return "../typeIcons/Industrie_marker.png"
         break;
 
       case "Genußmittelindustrie":
